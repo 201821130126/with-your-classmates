@@ -1,0 +1,47 @@
+<view class="top-tab flex-wrp flex-tab ">
+  <view class="toptab flex-item {{currentNavtab==idx ? 'active' : ''}}" wx:for="{{navTab}}" wx:for-index="idx"
+    wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab">
+    {{itemName}}
+  </view>
+</view>
+<scroll-view scroll-y="true" class="container discovery withtab" scroll-into-view="{{toView}}"
+  scroll-top="{{scrollTop}}">
+
+  <view class="ctnt1 placehold" hidden="{{currentNavtab==0 ? '' : true}}">
+
+    <!-- <view wx:if="{{empty=='true'}}" class="empty">暂无队友打分</view> -->
+    <!-- 自己得分 -->
+    <view class="mypostil-item" wx:for="{{ownScore}}" wx:key="index">
+      <!-- 还未结束 -->
+
+      <image style="width:40px;height:40px" src="{{ownScore[index].judgerUrl}}"></image>
+      <text> {{ownScore[index].judgerName}} 给你打了</text>
+      <view>{{ownScore[index].point}}
+        <image src="https://www.cqcwangluo.site/static/images/toEvaluate.png" class="star">
+        </image>
+      </view>
+    </view>
+
+
+  </view>
+
+  <view class="ctnt1 placehold" hidden="{{currentNavtab==1 ? '' : true}}">
+    <!-- 还未结束 -->
+    <!-- <view wx:if="{{empty}}" class="empty">队伍暂未结束，无法查看得分</view> -->
+    <!-- 别人得分 -->
+
+    <view style="display:flex;justify-content:between;" class="mypostil-item" wx:for="{{otherScore}}" wx:key="index">
+      <image style="width:40px;height:40px" src="{{otherScore[index].avatarUrl}}"></image>
+      <text>{{otherScore[index].nickName}}</text>
+      <view wx:if="{{otherScore[index].point == null}}">还没有获得
+        <image src="https://www.cqcwangluo.site/static/images/toEvaluate.png" class="star"></image>
+      </view>
+      <view wx:else>当前总评为{{otherScore[index].point}}
+        <image src="https://www.cqcwangluo.site/static/images/toEvaluate.png" class="star"></image>
+      </view>
+
+    </view>
+  </view>
+
+
+</scroll-view>

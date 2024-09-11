@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "保险",
+  "usingComponents": {
+    "ec-canvas": "../../../../ec-canvas/ec-canvas"
+  }
+}

@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view style="margin-bottom: 5px;color:grey;font-size:26rpx;">
+  <view class="tag">!</view>点击一条上的一点即可查看具体评分值噢~
+</view>
+<view style="margin-bottom: 5px;color:grey;font-size:26rpx;padding:0px 1px">
+  <view class="tag">!</view>点击一条线对应的“评分值”图标可切换该条线的显示与隐藏状态。
+</view>
+<view style="margin-bottom: 5px;color:grey;font-size:26rpx;">
+  <view class="tag">!</view>没有曲线是因为暂无队友给你打分！
+</view>
+<view style="margin-bottom: 5px;color:grey;font-size:26rpx;">
+  <view class="tag">!</view>横轴上标明了该评分值对应的标签！
+</view>
+<view class="container">
+  <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ec}}" force-use-old-canvas="true"></ec-canvas>
+</view>

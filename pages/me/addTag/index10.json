@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "翻译",
+  "usingComponents": {
+    "ec-canvas": "../../../../ec-canvas/ec-canvas"
+  }
+}

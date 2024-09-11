@@ -1,0 +1,30 @@
+<view>
+  <view style="margin-bottom: 5px;color:grey;font-size:26rpx;"><view class="tag">!</view>评分为0表示该用户尚无组队记录！</view>
+  <view style="color:grey;font-size:26rpx;"><view class="tag">!</view>当选择推荐用户发送组队邀请后，该用户可在消息界面查看并处理消息</view>
+  <image class="mytest" src="https://www.cqcwangluo.site/static/images/bg3.png"></image>
+  
+  
+  <view class="top">推荐以下好友与您组队</view> 
+
+  <view class="recom">
+  <view class="team_info">
+    <text  class="title1">头像</text>
+    <view class="title2">昵称</view>
+    <view class="title3">评分</view>
+    <view style="margin-left:28px;">选框</view>
+  </view>
+
+
+  <view wx:for="{{personList}}" >
+    <view class="team_info">
+      <!-- <view class="recom"> -->
+      <image  class="team_img" src="{{personList[index].avatarUrl}}" mode="widthfix"></image>
+      <view class="team_name">{{personList[index].nickName}}</view>
+      <view class="select">{{personList[index].point}}</view>
+      <image wx:if="{{status}}" src="https://www.cqcwangluo.site/static/images/toEvaluate.png" class="star"></image>
+      <checkbox  data-id="{{personList[index].id}}" class="check" bindtap="select" disabled="{{disable}}"></checkbox>
+    </view>
+</view>
+</view>
+</view>
+

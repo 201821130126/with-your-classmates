@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "法律",
+  "usingComponents": {
+    "ec-canvas": "../../../../ec-canvas/ec-canvas"
+  }
+}

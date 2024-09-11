@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText":"个人日程",
+  "usingComponents": {},
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "设置计划",
+    "navigationBarTextStyle": "black"
+  }
+}

@@ -1,0 +1,6 @@
+<picker class='theme_picker' bindchange='bindPickerChange' range='{{category_arr}}' range-key="{{'name'}}"
+  value="{{type}}">选择讨论区标签：<span>{{category_arr[type].name}}</span></picker>
+<input class='title' placeholder='标题' bindinput='getInput'></input>
+<textarea class='info' bindinput='getText' maxlength='200'></textarea>
+<span class='dongTais'>最多输入200字，您还可输入{{rest_num}}字</span>
+<button bindtap='' class='create'>创建</button>

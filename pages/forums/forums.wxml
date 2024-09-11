@@ -1,0 +1,103 @@
+<!--搜索框-->
+<page>
+
+  <scroll-view>
+    <view id="header" style="width:100%;">
+      <!-- 头像 -->
+      <!-- <view class='head'>
+      <open-data bindtap="bindViewTap" class="userinfo-avatar" type="userAvatarUrl"></open-data>
+    </view> -->
+      <view class="weui-search-bar" style="width:100%;">
+        <!--申诉按钮-->
+        <view class="search-btn appeal_btn" bindtap="powerDrawer" data-statu="open">申诉</view>
+        <view class="weui-search-bar__form">
+          <!-- 搜索框 -->
+          <view class="weui-search-bar__box">
+            <input type="text" class="weui-search-bar__input" placeholder="请输入待搜索讨论区" bindinput="inputforum" value="{{searchforum}}"/>
+          </view>
+          <!-- 搜索按钮,调用搜索查询方法 -->
+          <view class="search-btn" catchtap='searchforum'>搜索</view>
+        </view>
+        <!--mask，点击申诉时出现-->
+        <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+      </view>
+    </view>
+
+    <!--讨论区-->
+    <block wx:for="{{forums}}" wx:for-index="idxgrp" wx:for-item="forum">
+      <view class="list-view-groups" data-type="{{forum.type}}" catchtap="forumclick"
+        style="{{forum.hidden? '':'border-right: 3px solid lightcoral;border-left: 3px solid lightgreen;font-weight: bold;'}}">
+        <view class="list-view-image">
+          <!-- <block wx:if="{{forum.hidden}}"> -->
+          <image class='select_img {{forum.hidden&&"select_img_rotate"}}'
+            src='https://www.cqcwangluo.site/static/images/arrow-bottom.png'></image>
+        </view>
+        <view class="list-view-text">
+          <text class="list-text">{{forum.type}}</text>
+        </view>
+        <view class="list-view-count">
+          <text class="list-text-count">({{forum.forumInfos.length}})</text>
+        </view>
+      </view>
+
+
+      <view class='bg' style="background-image: url(https://www.cqcwangluo.site/static/images/bgbg.png);"
+        hidden="{{forum.hidden}}">
+        <view class="forums" wx:for="{{forum.forumInfos}}" wx:key="forums">
+          <view class='waikuang' data-id="{{item.forumId}}" data-name="{{item.forumName}}" bindtap="ToDiscuss">
+            <view class="topic_title">
+              <view class="word_title"
+                style="padding: 5px;border-radius: 0.5ch;margin-top: 5px;background-color: rgb(255,243,211);">
+                {{item.forumName}}讨论区</view>
+              <!-- background-image: url(/images/forumNamebg2.png); -->
+            </view>
+            <view class="topic_label">
+              <view class="word_desp">
+                <view style="font-weight:bold;display:inline;">简介</view>：
+                {{item.description}}
+              </view>
+            </view>
+
+          </view>
+        </view>
+
+
+      </view>
+    </block>
+
+    <view wx:if="{{forums.length == 0}}">
+      <view class="word_appeal">没有想找的讨论区?
+        <button bindtap="ToAccuse" class="appeal appeal2" bindtap="powerDrawer" data-statu="open">点此申诉</button>
+      </view>
+    </view>
+    <!--点击申诉后才出现的内容content-->
+    <!--使用animation属性指定需要执行的动画-->
+    <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+
+      <!--drawer content-->
+      <view class="drawer_title">申诉新的讨论区
+        <image class="close" src="https://www.cqcwangluo.site/static/images/close.png" data-statu="close" bindtap="powerDrawer" ></image>
+    </view>
+      <form bindsubmit="formSubmit" bindreset="formReset">
+        <view class="drawer_content">
+          <view class="top grid">
+            <label class="title col-0"><label style="color:red;font-weight:bolder">*</label>讨论区标题</label>
+            <input class="input_base input_h30 col-1 input_talk" name="forumName" placeholder="请输入讨论区名称"></input>
+            <label class="talk col-0">讨论区</label>
+          </view>
+          <view class="top grid">
+            <label class="title col-0"><label style="color:red;font-weight:bolder">*</label>讨论区描述</label>
+            <textarea class="input_base input_h150 col-1 " bindblur="bindTextAreaBlur"
+              placeholder="请输入讨论区描述" name="description"></textarea>
+          </view>
+        </view>
+        <view class="btn-area">
+          <button class="btn_submit" formType="submit" bindtap="powerDrawer" data-statu="close">确定</button>
+          <button class="btn_submit btn_reset" formType="reset" bindtap="powerDrawer">重置</button>
+        </view>
+      </form>
+    </view>
+
+  </scroll-view>
+
+</page>

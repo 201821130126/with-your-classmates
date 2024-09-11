@@ -1,0 +1,38 @@
+<!--pages/label/label.wxml-->
+<view class="head">
+<view class="hasChoose" bindtap="add">已选队伍标签({{temp}}/1)</view>
+<view class="alabel">
+  <view class="label" bindtap="add">{{choose1}} </view>
+  <!-- <view class="dele" bindtap="close"> {{delete}}</view> -->
+  <mp-icon class="dele" bindtap="close" wx:if="{{isVisible}}" icon="close" color="black" size="{{25}}"></mp-icon>
+</view>
+</view>
+<view class="All">
+<view class="category">{{tagType1}}</view>
+<view class="univ_info" bindtap="add" wx:for="{{item}}" wx:key="id" data-lockerid='{{item}}'>{{item.tagName}}</view>
+<view class="category">{{tagType2}}</view>
+<view class="univ_info" bindtap="add" wx:for="{{com}}" wx:key="id" data-lockerid='{{item}}'>{{item.tagName}}</view>
+<view class="category">{{tagType3}}</view>
+<view class="univ_info" bindtap="add" wx:for="{{item3}}" wx:key="id" data-lockerid='{{item}}' >{{item.tagName}}</view>
+<view class="category">{{tagType4}}</view>
+<view class="univ_info" bindtap="add" wx:for="{{item4}}" wx:key="id" data-lockerid='{{item}}' >{{item.tagName}}</view>
+<view class="category">{{tagType5}}</view>
+<view class="univ_info" bindtap="add" wx:for="{{item5}}" wx:key="id" data-lockerid='{{item}}' >{{item.tagName}}</view>
+<view class="category">{{tagType6}}</view>
+<view class="univ_info" bindtap="add" wx:for="{{item6}}" wx:key="id" data-lockerid='{{item}}' >{{item.tagName}}</view>
+<view class="category">{{tagType7}}</view>
+<view class="univ_info" bindtap="add" wx:for="{{item7}}" wx:key="id" data-lockerid='{{item}}' >{{item.tagName}}</view>
+<view class="category">{{tagType8}}</view>
+<view class="univ_info" bindtap="add" wx:for="{{item8}}" wx:key="id" data-lockerid='{{item}}' >{{item.tagName}}</view>
+<view class="category">{{tagType9}}</view>
+<view class="univ_info" bindtap="add" wx:for="{{item9}}" wx:key="id" data-lockerid='{{item}}' >{{item.tagName}}</view>
+<view class="category">{{tagType10}}</view>
+<view class="univ_info" bindtap="add" wx:for="{{item10}}" wx:key="id" data-lockerid='{{item}}' >{{item.tagName}}</view>
+<view class="category">{{tagType11}}</view>
+<view class="univ_info" bindtap="add" wx:for="{{item11}}" wx:key="id" data-lockerid='{{item}}' >{{item.tagName}}</view>
+<view class="category">{{tagType12}}</view>
+<view class="univ_info" bindtap="add" wx:for="{{item12}}" wx:key="id" data-lockerid='{{item}}' >{{item.tagName}}</view>
+</view>
+<view class="button">
+<button bindtap="onSubmit" disabled='{{disabled}}' style="background-color:rgb(253, 237, 237)">提交</button>
+</view>

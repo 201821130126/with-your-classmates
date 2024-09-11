@@ -1,0 +1,77 @@
+<!--pages/self/self.wxml-->
+<view class='b1 float color'>
+  <view class='head'>
+    <!-- <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text class='name'>{{userInfo.nickName}}</text> -->
+    <open-data bindtap="bindViewTap" class="userinfo-avatar" type="userAvatarUrl"></open-data>
+  </view>
+  <view style="width:300rpx;height:150rpx;margin-top:40rpx;">
+  <open-data class='name' type="userNickName"></open-data>
+  <view style="margin:10px;display:inline-flex;">总评分：
+    <text wx:if="{{starScore == null}}">0</text>
+    <text wx:else>{{starScore}}</text>
+    <image src="https://www.cqcwangluo.site/static/images/toEvaluate.png" class="star"></image>
+  </view>
+</view>
+</view>
+<view class="view_2">
+  <view class="view_tupianwenzi" catchtap="my_goals" hover-class="bgcolor">
+    <image src="https://www.cqcwangluo.site/static/images/jifen.png" class="image_tupian"></image>
+    <text class="text_saoyisao">积分</text>
+  </view>
+  <view class="view_tupianwenzi" catchtap='score' hover-class="bgcolor">
+    <image src="https://www.cqcwangluo.site/static/images/toEvaluate.png" class="image_tupian"></image>
+    <text class="text_saoyisao">评分</text>
+  </view>
+  <view class="view_tupianwenzi" catchtap='my_postil' hover-class="bgcolor">
+    <image src="https://www.cqcwangluo.site/static/images/postil.png" class="image_tupian"></image>
+    <text class="text_saoyisao">帖子</text>
+  </view>
+  <!-- <view class="view_tupianwenzi" catchtap='my_suggest' hover-class="bgcolor">
+    <image src="https://www.cqcwangluo.site/static/images/suggest.png" class="image_tupian"></image>
+    <text class="text_saoyisao">意见</text>
+  </view> -->
+</view>
+
+<view class='b2 float color text' catchtap='change'>
+  <image src="https://www.cqcwangluo.site/static/images/exchange_center.png" class="image"></image>
+  <text>个人标签</text>
+  <image src="https://www.cqcwangluo.site/static/images/jiantou.png" class="image2"></image>
+</view>
+
+<view class='b2 float color text' catchtap='add'>
+  <image src="https://www.cqcwangluo.site/static/images/post.png" class="image"></image>
+  <text>申诉标签</text>
+  <image src="https://www.cqcwangluo.site/static/images/jiantou.png" class="image2"></image>
+</view>
+
+<navigator url="../../mePackage/pages/me/top/top">
+<view class='b2 float color text'>
+  <image src="https://www.cqcwangluo.site/static/images/my_goals.png" class="image"></image>
+  <text>排行榜单</text>
+  <image src="https://www.cqcwangluo.site/static/images/jiantou.png" class="image2"></image>
+</view>
+</navigator>
+
+
+  <view class='b2 float color text' catchtap='history'>
+     <image src="https://www.cqcwangluo.site/static/images/history.png" class="image"></image>
+     <text>历史组队</text>
+     <image src="https://www.cqcwangluo.site/static/images/jiantou.png" class="image2"></image>
+  </view>
+
+
+
+<!-- <view class='b2 float color text' catchtap='score'>
+  <image src="https://www.cqcwangluo.site/static/images/data_analysis.png" class="image"></image>
+  <text>评分记录</text>
+  <image src="https://www.cqcwangluo.site/static/images/jiantou.png" class="image2"></image>
+</view> -->
+
+
+
+<view class='b2 float color text' catchtap='my_suggest'>
+  <image src="https://www.cqcwangluo.site/static/images/suggest.png" class="image"></image>
+  <text>意见反馈</text>
+  <image src="https://www.cqcwangluo.site/static/images/jiantou.png" class="image2"></image>
+</view>

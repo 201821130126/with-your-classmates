@@ -1,0 +1,48 @@
+<!--pages/choose/choose.wxml-->
+<!--<view wx:for="{{menus}}">
+    <span>{{item.title}}</span>
+    <view class="menuBox">
+      <view class="menu" bindtap="menu" id="{{index}}" >{{item.defaults}}</view>
+      <view class="val" hidden="{{item.hiddens}}"  bindtap="txt" data-index="{{index}}">
+        <view class="" wx:for="{{item.txt}}" wx:for-item="item_txt" data-txt="{{item_txt.lis}}" 
+        data-id="{{index}}">{{item_txt.lis}}</view>
+      </view>
+    </view>
+  </view>-->
+
+<view class="head"
+  style="top:0;min-height:100%;background-repeat:no-repeat;background-size:cover;background-image:url(https://www.cqcwangluo.site/static/images/img3.jpg);">
+  <view class="dongTai" hidden="{{show}}" catchtap="dongTais">
+    <button class="add" style="width: 48px;height: 48px;">
+      ?
+    </button>
+  </view>
+  <navigator url="../../makeTeamPackage/pages/label/label" open-type="navigate"><button class="buttonTop">邀请组队</button>
+  </navigator>
+  <navigator url="../../makeTeamPackage/pages/recommandTeam/teamTag" open-type="navigate"><button
+      class="buttonBottom">加入队伍</button></navigator>
+</view>
+<!--  <view class="move" wx:for="{{item}}">
+      <view class="moveView" bindtap="tap" direction="all" x="{{item.locate.x}}" y="{{item.locate.y}}">
+      {{item.title}}
+      </view>
+    </view>
+    <view class="hasChoose" bindtap="tap">
+    已选目标：{{item.title}}
+    </view>-->
+
+<!-- 小贴士 -->
+<view>
+  <view class="mask" wx:if="{{showModalStatusdongTais}}" bindtap="close"></view>
+  <view class="drawerdongTais" wx:if="{{showModalStatusdongTais}}">
+    <image class="close" src="https://www.cqcwangluo.site/static/images/close.png" bindtap="close"></image>
+    <text>
+      有两种拥有自身队伍的方式：邀请组队，加入队伍。\n
+      邀请组队：选择想要组队的标签（组队目标）后，填写队伍名称、人数、队伍结束时间，“伴你”小程序会匹配合适的用户给你，可以选择其中任一用户发送邀请。\n
+      加入队伍：在选择组队的标签后，“伴你”小程序会匹配该标签下已有的队伍，可以选择其中任一队伍向该队的队长发送邀请。\n
+      所发出的邀请函会在对方用户的“消息”页面显示\n
+      在使用小程序期间，可以在“个人中心”页面的“个人标签”处选择自己的目标，“伴你”小程序会根据所设置的目标推荐适合的队伍给你。\n
+      所有的组队邀请均可在“消息”界面查看。\n
+    </text>
+  </view>
+</view>

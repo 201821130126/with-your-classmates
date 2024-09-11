@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "教育",
+  "usingComponents": {
+    "ec-canvas": "../../../../ec-canvas/ec-canvas"
+  }
+}

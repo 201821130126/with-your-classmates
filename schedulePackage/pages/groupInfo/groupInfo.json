@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText":"队伍",
+  "usingComponents": {
+    "wux-col": "../wux/col/index",
+    "wux-row": "../wux/row/index"
+  }
+}

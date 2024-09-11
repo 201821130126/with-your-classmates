@@ -1,0 +1,90 @@
+<!--pages/forums/sendPostil/sendPostil.wxml-->
+<view style="margin: 10px;background-color: rgb(247,247,247);">
+  <view class="all">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <!-- <view class="drawer_content"> -->
+      <view class="top grid">
+        <label class="title col-0">讨论区</label>
+        <text style="font-weight:bold;">{{forumName}}</text>
+        <label class="talkname col-0">讨论区</label>
+      </view>
+      <view class="top grid">
+        <label class="title col-0"><label style="color:red;font-weight:bolder">*</label>帖子标题</label>
+        <input class="input_base input_h30 col-1 input_talk" name="title" placeholder="请输入帖子标题"></input>
+        <!-- <textarea class="input_base input_h150 col-1 " bindblur="bindTextAreaBlur"
+        placeholder="请输入讨论区描述" name="description"></textarea> -->
+      </view>
+      <view class="top grid" style="border-bottom: 0px;padding:0px;">
+        <label class="title col-0"><label style="color:red;font-weight:bolder">*</label>正文内容</label>
+      </view>
+      <view style="border-bottom: 2px solid rgb(255,255,255);padding-left:8px;padding-bottom:10px;">
+        <textarea class="input_base input_h150 col-1 " bindblur="bindTextAreaBlur" placeholder="请输入正文内容"
+          name="content"></textarea>
+      </view>
+      <!-- 上传图片区 -->
+      <!-- <button class="upload-img-btn" bindtap="ifImg" type='primary'>上传图片{{img_arr.length}}/4</button> -->
+      <view class="upload-view">上传照片{{img_arr.length}}/4</view>
+      <view class="container-img">
+        <!-- <view class="container-img" style="display:{{if_img? '':'none'}}"> -->
+        <view class="feature-box">
+          <view class='pic' wx:for="{{img_arr}}" wx:for-item="item" wx:key="*this">
+            <image class='pic_img' src="{{item}}" data-index="{{index}}" mode="widthFix"
+              catchtap="{{upStage? '':'previewImg'}}">
+              <icon type='cancel' class="delete-btn" data-index="{{index}}" catchtap="deleteImg"
+                style="display:{{upStage? 'none':'block'}}"></icon>
+            </image>
+          </view>
+          <view class='pic' wx:if="{{img_arr.length<4}}">
+            <image class='pic_img' catchtap="{{upStage? '':'upimg'}}" src="../../../images/upimg.png" mode="widthFix">
+            </image>
+          </view>
+        </view>
+      </view>
+      <!-- 上传附件区 -->
+      <!-- <button class="upload-img-btn" bindtap="ifFile" type='primary'>上传附件{{file_num}}/1</button> -->
+      <view class="upload-view">上传附件{{file_num}}/1<text style="font-size:10px">（仅限微信聊天记录中附件哦）</text>
+        <view style="font-size: 12px;margin-left: 5px;color: gray;font-weight: lighter;">支持格式：.doc .docx .pdf .xls .xlsx</view>
+      </view>
+
+      <view class="container-file">
+        <!-- <view class="container-file" style="display:{{if_file? '':'none'}}"> -->
+        <view class="file-box" catchtap="{{upStage? '':'chooseFile'}}">
+          <view class="file-left">
+            <image src="{{fileImg}}" style="height:30px;width:30px;" data-src="{{item}}" bindtap="imgEnlarge"></image>
+          </view>
+          <view class="file-right">
+            {{fileName}}
+          </view>
+          <icon type='cancel' class="delete-btn" data-index="{{index}}" catchtap="deleteFile"
+            style="display:{{file_num&&!upStage? '':'none'}}"></icon>
+        </view>
+      </view>
+
+      <view class="top grid" style="display:{{file_num>0? 'flex':'none'}}">
+        <label class="title col-0"><label style="color:red;font-weight:bolder">*</label>所需积分</label>
+        <!-- 设置附件上传的积分 -->
+        <view class='select_box  col-1'>
+          <view class='select' catchtap="{{upStage? '':'selectTap'}}">
+            <text class='select_text'>{{ifDefault? '请设置别人下载所需积分':selectData[index]}}</text>
+            <image class='select_img {{show&&"select_img_rotate"}}'
+              src='https://www.cqcwangluo.site/static/images/arrow-bottom.png'></image>
+          </view>
+          <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+            <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}'
+              wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+          </view>
+        </view>
+
+      </view>
+
+      <view class="btn-area">
+        <view style="width:20%;display: flex;margin: 30rpx auto;">
+          <button class="btn_submit" formType="{{upStage? '':'submit'}}">发布</button>
+        </view>
+        <view style="width:20%;display: flex;margin: 30rpx auto;">
+          <button class="btn_submit btn_reset" formType="reset">重置</button>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>

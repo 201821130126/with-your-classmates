@@ -1,0 +1,39 @@
+<!--pages/me/top/top.wxml-->
+<wxs src="../../../../wxs/subutil.wxs" module="tools" />
+<image class="mytest" src="https://www.cqcwangluo.site/static/images/bg1.png"></image>
+<view style="height:100%;width:100%;">
+<view class="box1" wx:if="{{flag1}}">
+<image class="img" src="{{rank1.avatarUrl}}"></image>
+<view class="nickName">{{rank1.nickName}}</view>
+<view class="point">{{tools.numFix1(rank1.point)}}
+  <image src="https://www.cqcwangluo.site/static/images/toEvaluate.png" class="star"></image>
+</view>
+</view>
+
+<view class="box1" style="color: rgb(254,206,78);" wx:else>等你上榜~</view>
+<view class="box2" wx:if="{{flag2}}">
+<image class="img" src="{{rank2.avatarUrl}}"></image>
+<view class="nickName">{{rank2.nickName}}</view>
+<view class="point">{{tools.numFix1(rank2.point)}}
+  <image src="https://www.cqcwangluo.site/static/images/toEvaluate.png" class="star"></image>
+</view>
+</view>
+
+<view class="box2" style="color: rgb(254,206,78);" wx:else>等你上榜~</view>
+<view class="box3" wx:if="{{flag3}}">
+<image class="img" src="{{rank3.avatarUrl}}"></image>
+<view class="nickName">{{rank3.nickName}}</view>
+<view class="point">{{tools.numFix1(rank3.point)}}
+  <image src="https://www.cqcwangluo.site/static/images/toEvaluate.png" class="star"></image>
+  </view>
+</view>
+<view class="box3" style="color: rgb(254,206,78);" wx:else>等你上榜~</view>
+<view class="box4" wx:if="{{flag4}}">
+<image class="img" src="{{rank4.avatarUrl}}"></image>
+<view class="nickName">{{rank4.nickName}}</view>
+<view class="point">{{tools.numFix1(rank4.point)}}
+  <image src="https://www.cqcwangluo.site/static/images/toEvaluate.png" class="star"></image>
+</view>
+</view>
+<view class="box4" style="color: rgb(254,206,78);" wx:else>等你上榜~</view>
+</view>

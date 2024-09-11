@@ -1,0 +1,137 @@
+<!--pages/message/message.wxml-->
+<view class="type">
+  <button class="{{flag? 'msg1':'msg'}}" bindtap="change1">组队消息</button>
+  <view class="{{flag? 'number1':'number'}}">{{number}}</view>
+  <button class="{{flag? 'msg':'msg1'}}" bindtap="change2">系统消息</button>
+</view>
+
+<view wx:if="{{isTeamVisible}}">
+  <view class="title">
+    <view bindtap="hide" style="display: flex;">请求加入队伍消息
+      <image class='select_img {{flag1&&"select_img_rotate"}}' src="../../images/{{ifCheck1? 'redArrow':'downArrow'}}.png"></image>
+    </view>
+    <view wx-if="{{flag1&&allTeamMessage.length!=0}}" wx:for="{{allTeamMessage}}" wx:key="allTeamMessage" wx:for-item="item">
+      <view class='waikuang' data-id="{{item.id}}" data-name="{{item.groupName}}" data-tag="{{item.tagName}}"
+        data-readed="{{item.readed}}" bindtap="toTeamDetail" data-sendusername="{{item.sendUserName}}">
+        <view style="display:inline;color:rgb(25,128,199)">{{item.sendUserName}}</view>请求加入队伍
+        <view data-cfm="{{waiteToConfirm}}" data-num="{{messageNum}}"
+          style="display:inline;margin-top:5rpx;float:right; color:rgb(134,134,134)">
+          <text style="{{item.readed == '等待确认'?'color:red':''}}">
+            {{item.readed}}
+          </text>
+        </view>
+      </view>
+    </view>
+    <view wx-if="{{flag1&&allTeamMessage.length==0}}" class="noMessage">你暂无请求加入队伍消息哦~</view>
+  </view>
+
+  <view class="title">
+    <view style="display: flex;" bindtap="hide1" >个人组队邀请消息
+      <image class='select_img {{flag2&&"select_img_rotate"}}' src="../../images/{{ifCheck2? 'redArrow':'downArrow'}}.png"></image>
+    </view>
+    <view wx:for="{{allPersonMessage}}" wx:key="allPersonMessage" wx:for-item="item">
+      <view wx-if="{{flag2&&allPersonMessage.length!=0}}" class='waikuang' data-id="{{item.id}}" data-name="{{item.groupName}}"
+        data-tag="{{item.tagName}}" data-readed="{{item.readed}}" bindtap="toPersonalDetail"
+        data-sendusername="{{item.sendUserName}}" data-fullmem="{{item.fullMem}}">
+        <view style="display:inline;color:rgb(25,128,199)">{{item.groupName}}</view>小组期待您的加入
+        <view style="display:inline;float:right;margin-top:50rpx;color:rgb(134,134,134)">
+          <text style="{{item.readed == '等待确认'?'color:red':''}}">{{item.readed}}</text></view>
+      </view>
+    </view>
+    <view wx-if="{{flag2&&allPersonMessage.length==0}}" class="noMessage">你暂无个人组队邀请消息哦~</view>
+  </view>
+
+  <view class="title">
+    <view style="display: flex;"  bindtap="hide2" >队伍邀请消息
+      <image class='select_img {{flag3&&"select_img_rotate"}}'  src="../../images/{{ifCheck3? 'redArrow':'downArrow'}}.png"></image>
+    </view>
+    <view wx:for="{{allTeamMessaged}}" wx:key="allTeamMessaged" wx:for-item="item">
+      <view wx-if="{{flag3&&allTeamMessaged.length!=0}}" class='waikuang' data-id="{{item.id}}" data-name="{{item.groupName}}"
+        data-tag="{{item.tagName}}" data-readed="{{item.readed}}" data-content="{{item.content}}"
+        bindtap="toInviteDetail" data-sendusername="{{item.sendUserName}}">
+        <view style="display:inline;color:rgb(25,128,199)"></view>组队邀请信息
+        <view style="display:inline;float:right;margin-top:50rpx;color:rgb(134,134,134)">
+          <text style="{{item.readed == '等待确认'?'color:red':''}}">
+            {{item.readed}}
+          </text>
+        </view>
+      </view>
+    </view>
+    <view wx-if="{{flag3&&allTeamMessaged.length==0}}" class="noMessage">你暂无队伍邀请消息哦~</view>
+  </view>
+
+  <view class="title" style="margin-bottom:100rpx;">
+    <view style="display: flex;" bindtap="hide3" >返回消息
+      <image class='select_img {{flag4&&"select_img_rotate"}}' src='../../images/downArrow.png'></image>
+    </view>
+    <view wx-if="{{flag4}}">
+      <view wx-if="{{allPersonReturnY.length==0&&allTeamReturnY==0&&allTeamMessagedY.length==0&&allPersonReturnN.length==0&&allTeamReturnN.length==0&&allTeamMessagedN.length==0}}" 
+        class="noMessage">你暂无返回消息哦~</view>
+      <view wx:for="{{allPersonReturnY}}" wx:key="allPersonReturnY" wx:for-item="item">
+        <view class='waikuang' style="box-shadow: 0px 0px 0px 0px #AAAAAA;">
+          <view style="display:inline;color:rgb(25,128,199)">{{item.sendUserName}}</view>
+          <view style="display:inline;margin-top:20rpx;float:right; color:rgb(134,134,134)">同意组队邀请</view>
+        </view>
+      </view>
+      <view wx:for="{{allTeamReturnY}}" wx:key="allTeamReturnY" wx:for-item="item">
+        <view class='waikuang' style="box-shadow: 0px 0px 0px 0px #AAAAAA;">
+          <view style="display:inline;color:rgb(25,128,199)">{{item.sendUserName}}</view>
+          <view style="display:inline;margin-top:20rpx;float:right; color:rgb(134,134,134)">同意加入队伍</view>
+        </view>
+      </view>
+      <view wx:for="{{allTeamMessagedY}}" wx:key="allTeamMessagedY" wx:for-item="item">
+        <view class='waikuang' style="box-shadow: 0px 0px 0px 0px #AAAAAA;">
+          <view style="display:inline;color:rgb(25,128,199)">{{item.sendUserName}}</view>
+          <view style="display:inline;margin-top:20rpx;float:right; color:rgb(134,134,134)">同意队伍邀请</view>
+        </view>
+      </view>
+      <view wx:for="{{allPersonReturnN}}" wx:key="allPersonReturnY" wx:for-item="item">
+        <view class='waikuang' style="box-shadow: 0px 0px 0px 0px #AAAAAA;">
+          <view style="display:inline;color:rgb(25,128,199)">{{item.sendUserName}}</view>
+          <view style="display:inline;margin-top:50rpx;float:right; color:rgb(134,134,134)">拒绝组队邀请</view>
+        </view>
+      </view>
+      <view wx:for="{{allTeamReturnN}}" wx:key="allTeamReturnN" wx:for-item="item">
+        <view class='waikuang' style="box-shadow: 0px 0px 0px 0px #AAAAAA;">
+          <view style="display:inline;color:rgb(25,128,199)">{{item.sendUserName}}</view>
+          <view style="display:inline;margin-top:20rpx;float:right; color:rgb(134,134,134)">拒绝加入队伍</view>
+        </view>
+      </view>
+      <view wx:for="{{allTeamMessagedN}}" wx:key="allTeamMessagedN" wx:for-item="item">
+        <view class='waikuang' style="box-shadow: 0px 0px 0px 0px #AAAAAA;">
+          <view style="display:inline;color:rgb(25,128,199)">{{item.sendUserName}}</view>
+          <view style="display:inline;margin-top:20rpx;float:right; color:rgb(134,134,134)">拒绝队伍邀请</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 管理员端消息data-id="{{item.noticeId}}" -->
+<view style="margin-bottom: 120rpx;" wx:if="{{isSysVisible}}">
+  <view wx:for="{{allAdmainMessage}}" wx:key="allAdmainMessage" wx:for-item="item">
+    <view class='waikuang1' data-id="{{item.id}}" bindtap="detail1">
+      <view style="display:inline;width:600rpx;">
+        <view style="width:600rpx;height:54rpx;line-height:54rpx;overflow:hidden;color:rgb(255,185,0);">{{item.critic}}
+        </view>
+        <view style="color:rgb(255,185,0);">...</view>
+      </view>
+      <view style="display:inline;float:right;margin-top:-30rpx;color:rgb(134,134,134)">{{item.addTime}}</view>
+    </view>
+  </view>
+  <!-- 系统消息 -->
+  <view wx:for="{{systemMessage}}" wx:key="systemMessage" wx:for-item="item">
+    <view class='waikuang1' data-id="{{item.noticeId}}" bindtap="detail">
+      <view style="display:inline;width:600rpx;">
+        <view style="width:600rpx;height:54rpx;line-height:54rpx;overflow:hidden;color:rgb(255,185,0);">
+          {{item.noticeTitle}}</view>
+        <view style="color:rgb(255,185,0);">...</view>
+      </view>
+      <view style="display:inline;float:right;margin-top:-30rpx;color:rgb(134,134,134)">{{item.createTime}}</view>
+    </view>
+  </view>
+</view>
+
+
+<button bindtap="tt"
+  style="position:fixed;bottom:0;width:350rpx;margin-left:190rpx;background-color:rgb(255,185,0);">刷新</button>

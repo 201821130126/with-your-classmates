@@ -1,0 +1,181 @@
+<!--pages/plan/plan.wxml-->
+<view>
+  <view class="dongTai" hidden="{{show}}" catchtap="dongTais">
+    <button class="add" style="width: 48px;height: 48px;">
+      ?
+    </button>
+  </view>
+  <!-- <view class="dongTai" hidden="{{show}}" catchtap="dongTais" >贴士</view> -->
+  <view class="screen screen1">
+    <block wx:for="{{planList}}" wx:key="id" wx:for-item="">
+      <view class="contact" bindtap="showInfo" data-idx="{{index}}">
+        <!-- <icon color="orange"style="font-size:30px" size="30" type="sucess" role = "img"></icon> -->
+        <view wx:if="{{planList[index].checked}}" class="finish">已完成</view>
+        <share-element duration="{{duration}}" class="name" key="name">
+          {{order[index]}}
+        </share-element>
+        <view class="list">
+          <!-- 标题 -->
+          <view style="margin-bottom:20px">{{planList[index].title}}</view>
+
+
+
+
+
+          <view style="display:flex;justify-content:center">
+            <view wx:if="{{planList[index].unchecked}}">{{ddl}}{{planList[index].substageDdl}}</view>
+            <view wx:if="{{planList[index].checked}}">完成时间：{{planList[index].substageDdl}}</view>
+            <view class="tag" style="background-color:#94b5c0" wx:if="{{planList[index].leave}}">
+              余{{planList[index].timeFromDdl}}天
+            </view>
+            <view class="tag" style="background-color:#ef4f4f" wx:if="{{planList[index].end}}">
+              逾期
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+
+
+<page-container show="{{show}}" overlay="{{overlay}}" close-on-slide-down duration="{{duration}}"
+  position="{{position}}" bindbeforeenter="onBeforeEnter" bindenter="onEnter" bindafterenter="onAfterEnter"
+  bindbeforeleave="onBeforeLeave" bindleave="onLeave" bindafterleave="onAfterLeave" bindclickoverlay="onClickOverlay">
+  <view class="screen screen2">
+    <view class="contact">
+      <share-element class="avatar" duration="{{duration}}" key="avatar" transform>
+        <image style="width: 40px;" mode="widthFix" />
+      </share-element>
+      <!-- <image bindtap='showPrev' class='back' src='/images/back.png'></image> -->
+      <share-element class="name" key="name" duration="{{duration}}" transform>
+        计划详情
+      </share-element>
+      <view style="text-align:center;position:relative;height:300px" class="paragraph {{show ? 'enter' : ''}}">
+        {{plan0}}
+
+      </view>
+
+
+      <button wx:if="{{dakaShow}}" catchtap="finish" class="daka"
+        style="margin-right:2rpx;font-size:10pt;width:40pt;background:pink;color:white">
+
+        打卡
+      </button>
+      <button wx:if="{{dakaShow}}" catchtap="update" class="daka"
+        style="margin-right:50rpx;width:40pt;font-size:10pt;background:#5aa897;color:{{color}}">
+
+        修改
+      </button>
+      <button wx:if="{{empty}}" catchtap="add" style="font-size:10pt;background:rgb(78,110,242);color:{{color}}">
+
+        点我设置
+      </button>
+
+
+    </view>
+  </view>
+</page-container>
+
+
+
+<!-- 添加计划 -->
+<view>
+  <view class="mask" wx:if="{{showModalStatus1}}" bindtap="close"></view>
+  <view class="drawerBox" wx:if="{{showModalStatus1}}">
+    <image class="close" src="https://www.cqcwangluo.site/static/images/close.png" bindtap="close"></image>
+    <view class="tits">设置计划</view>
+    <!--输入计划标题 -->
+    <view class="content">
+      <textarea bindinput="bindinput0" placeholder="请设置计划" style="height:100rpx;width:100%"
+        placeholder-class="placeholder-class " value="{{title}}"></textarea>
+    </view>
+
+    <!--输入内容 -->
+    <view class="content">
+      <textarea bindinput="bindinput" placeholder="请输入计划详情"
+        style="border: 1px solid lightgrey;margin-bottom: 10px;border-radius: 1ch;"
+        placeholder-class="placeholder-class " value="{{plan}}"></textarea>
+    </view>
+
+    <!-- 输入完成时间 -->
+    <view class="ddl">
+      <!--  start="2021-01-01" -->
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+        <view class="picker">
+          完成时间: {{date}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="btn btn1" bindtap="submit">确认</view>
+  </view>
+</view>
+
+<!-- 修改计划 -->
+<view>
+  <view class="mask" wx:if="{{showModalStatus2}}" bindtap="close"></view>
+  <view class="drawerBox" wx:if="{{showModalStatus2}}">
+    <image class="close" src="https://www.cqcwangluo.site/static/images/close.png" bindtap="close"></image>
+    <view class="tits">修改计划</view>
+    <!--修改计划标题 -->
+    <!-- <view class="content">
+    <textarea bindinput="bindinput2" placeholder="请修改标题" style="height:100rpx;width:100%"
+      placeholder-class="placeholder-class " value="{{title1}}"></textarea>
+    </view> -->
+
+    <!--修改内容 -->
+    <view class="content">
+      <textarea bindinput="bindinput3" placeholder="请修改计划内容"
+        style="height: 70px;width: 100%;border: 1px solid lightgrey;margin-bottom: 15px;border-radius: 1ch;"
+        placeholder-class="placeholder-class " value="{{plan}}"></textarea>
+    </view>
+
+    <!-- 修改完成时间 -->
+    <view class="ddl">
+      <picker mode="date" value="{{date1}}" bindchange="bindDateChange1">
+        <view class="picker">
+          修改时间: {{date1}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="btn btn1" bindtap="updateSucess">确认</view>
+  </view>
+</view>
+
+<!-- 打卡心得体会 -->
+<view>
+  <view class="mask" wx:if="{{showModalStatus3}}" bindtap="close"></view>
+  <view class="drawerBox" wx:if="{{showModalStatus3}}">
+    <image class="close" src="https://www.cqcwangluo.site/static/images/close.png" bindtap="close"></image>
+    <view class="tits">确认打卡</view>
+    <!--输入内容 -->
+    <view class="content">
+      <textarea bindinput="bindinput1" placeholder="说下你的体会吧"
+        style="width:100%;border: 1px solid lightgrey;margin-bottom: 15px;border-radius: 1ch;"
+        placeholder-class="placeholder-class " value="{{comment}}">
+
+    </textarea>
+    </view>
+
+
+    <view class="btn btn1" bindtap="daka">确认</view>
+  </view>
+</view>
+
+<!-- 小贴士 -->
+<view>
+  <view class="mask" wx:if="{{showModalStatusdongTais}}" bindtap="close"></view>
+  <view class="drawerdongTais" wx:if="{{showModalStatusdongTais}}">
+    <image class="close" src="https://www.cqcwangluo.site/static/images/close.png" bindtap="close"></image>
+    <text>
+      最多有5个日程，每个日程可设置日程标题、内容及DDL。\n
+      请按照顺序设置日程，可以修改日程、打卡日程。\n
+      日程的时间设置请按照先后顺序，每打卡一次日程可获得20积分。\n
+      每个日程的完成时间应介于前后两次未完成日程之间。\n
+    </text>
+  </view>
+</view>

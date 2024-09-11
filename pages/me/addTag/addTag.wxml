@@ -1,0 +1,108 @@
+
+<button bindtap="tap">申请新增标签</button>
+<view class='b2 float color text' catchtap='detail'>
+   <!-- <image src= "../../../images/大学.png" class="image"></image> -->
+  <image src= "{{image_url}}大学.png" class="image"></image>
+  <text>大学</text>
+  <image src= "{{image_url}}jiantou.png" class="image2"></image>
+</view>
+
+<view class='b2 float color text' catchtap='overseaStudy'>
+ <image src="{{image_url}}mygoal2.png" class="image"></image>
+ <text>留学</text>
+ <image src="{{image_url}}jiantou.png" class="image2"></image>
+</view>
+
+<navigator url="/pages/help/help" >
+  <view class='b2 float color text' catchtap='lan'>
+     <image src="{{image_url}}mygoal3.png" class="image"></image>
+     <text>语言</text>
+     <image src="{{image_url}}jiantou.png" class="image2"></image>
+  </view>
+</navigator>
+
+<navigator url="/pages/clock/clock">
+  <view class='b2 float color text' catchtap='finance'>
+     <image src="{{image_url}}mygoal4.png" class="image"></image>
+     <text>财会</text>
+     <image src="{{image_url}}jiantou.png" class="image2"></image>
+  </view>
+</navigator>
+
+<navigator url="/pages/clock/clock">
+ <view class='b2 float color text' catchtap='gover'>
+    <image src="{{image_url}}mygoal5.png" class="image"></image>
+    <text>公务员 </text>
+    <image src="{{image_url}}jiantou.png" class="image3"></image>
+ </view>
+</navigator>
+
+<navigator url="/pages/clock/clock">
+ <view class='b2 float color text' catchtap='education'>
+    <image src="{{image_url}}mygoal7.png" class="image"></image>
+    <text>教育</text>
+    <image src="{{image_url}}jiantou.png" class="image2"></image>
+ </view>
+</navigator>
+
+<navigator url="/pages/clock/clock">
+ <view class='b2 float color text' catchtap='heart'>
+   <!-- <image src= "../../../images/心理.png" class="image"></image> -->
+    <image src="{{image_url}}心理.png" class="image"></image>
+    <text>心理</text>
+    <image src="{{image_url}}jiantou.png" class="image2"></image>
+ </view>
+</navigator>
+
+<navigator url="/pages/clock/clock">
+ <view class='b2 float color text' catchtap='manage'>
+   <!-- <image src= "../../../images/管理.png" class="image"></image> -->
+    <image src="{{image_url}}管理.png" class="image"></image>
+    <text>管理</text>
+    <image src="{{image_url}}jiantou.png" class="image2"></image>
+ </view>
+</navigator>
+
+<navigator url="/pages/clock/clock">
+ <view class='b2 float color text' catchtap='law'>
+   <!-- <image src= "../../../images/法律.png" class="image"></image> -->
+    <image src="{{image_url}}法律.png" class="image"></image>
+    <text>法律</text>
+    <image src="{{image_url}}jiantou.png" class="image2"></image>
+ </view>
+</navigator>
+
+<navigator url="/pages/clock/clock">
+ <view class='b2 float color text' catchtap='trans'>
+   <!-- <image src= "../../../images/翻译.png" class="image"></image> -->
+    <image src="{{image_url}}翻译.png" class="image"></image>
+    <text>翻译</text>
+    <image src="{{image_url}}jiantou.png" class="image2"></image>
+ </view>
+</navigator>
+
+<navigator url="/pages/clock/clock">
+ <view class='b2 float color text' catchtap='insure'>
+   <!-- <image src= "../../../images/保险.png" class="image"></image> -->
+    <image src="{{image_url}}保险.png" class="image"></image>
+    <text>保险</text>
+    <image src="{{image_url}}jiantou.png" class="image2"></image>
+ </view>
+</navigator>
+
+<navigator url="/pages/clock/clock">
+ <view class='b2 float color text' catchtap='work'>
+   <!-- <image src= "../../../images/办公.png" class="image"></image> -->
+    <image src="{{image_url}}办公.png" class="image"></image>
+    <text>办公</text>
+    <image src="{{image_url}}jiantou.png" class="image2"></image>
+ </view>
+</navigator>
+<view wx:if="{{visible2}}" class="bottomList">
+<input class="input" name="tag" placeholder="标签名：请输入你想要新增的标签" bindinput="tagInput"/>
+<input class="input1" name="reason" placeholder="理由：请输入新增理由、标签类别" bindinput="reasonInput"/>
+<view style="display:inline-flex;margin-top:80rpx;">
+   <button style="width:300rpx;margin-left:50rpx;" bindtap="addTag" disabled='{{disabled}}'>提交</button>
+   <button style="width:300rpx;margin-left:50rpx;" bindtap="cancle">取消</button>
+</view>
+</view>

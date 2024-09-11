@@ -1,0 +1,28 @@
+<!--pages/messageDetail/messageDetail.wxml-->
+<!-- <view>{{messageId}}</view> -->
+
+<image class="mytest" src="https://www.cqcwangluo.site/static/images/bg5.png"></image>
+<view style="width:500rpx;height:400rpx;margin:0 auto;margin-top:200rpx;">
+  <text class="title">邀请函</text>
+  <view class="content_title">
+    <view>
+      <text>亲爱的朋友</text>
+      <view style="font-weight:bolder;display:inline;">
+        <open-data type="userNickName"></open-data>
+      </view>
+      <text>，您好！</text>
+    </view>
+  </view>
+  <view class="content">
+    <text>我是用户<text style="font-weight:bolder;">{{sendUserName}}</text>，很幸运能在推荐榜单上看见您的队伍——<text
+        style="font-weight:bolder;">{{groupName}}</text>，我的近期目标也是<text
+        style="font-weight:bolder;">{{tagName}}</text>,非常希望能加入您的队伍，让我们一起备战<text
+        style="font-weight:bolder;">{{tagName}}</text>吧！</text>
+  </view>
+  <view style="display:flex;margin-top:100rpx">
+    <button data-state="{{state}}" wx:if="{{isVisible}}" bindtap=onSubmit1"
+      style="margin-right:50rpx;background-color:rgb(240,236,229);">同意</button>
+    <button data-state="{{state}}" bindtap="onSubmit2" wx:if="{{isVisible}}"
+      style="background-color:rgb(240,236,229);">拒绝</button>
+  </view>
+</view>

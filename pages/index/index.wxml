@@ -1,0 +1,71 @@
+<!--index.wxml-->
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+  <block wx:for="{{movies}}" wx:for-index="index" wx:key="movies">
+    <swiper-item data-id="{{movies[index].compId}}" catchtap="compInfo">
+      <image src="{{movies[index].compCoverPath}}" class="slide-image" mode="aspectFill" />
+    </swiper-item>
+  </block>
+</swiper>
+
+
+<!-- 授权登录 -->
+<view class="container contain_login">
+  <view class="userinfo">
+    <!-- 如果之前用户没有授权过 -->
+    <block wx:if="{{!hasUserInfo}}">
+      <open-data type="userAvatarUrl" mode="cover" class="userinfo-avatar"></open-data>
+      <!-- <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image> -->
+      <!-- 如果用户愿意让你获得基本信息 -->
+      <view bindtap="getUserProfile">
+        <button bindtap="login" class="login">授权登录</button>
+      </view>
+    </block>
+
+  </view>
+  <view wx:if="{{hasUserInfo&&ifTokenOutdate==true}}"  style="margin-top:10px;">
+  <!-- <view style="margin-top:10px;"> -->
+    你太久没有操作了~<button catchtap="tokenOut" class="login">点我重新登录</button>
+    <!-- <button catchTap="tokenOut">你太久没有操作了，点我重新登录哦！</button> -->
+  </view>
+</view>
+
+<block wx:if="{{hasUserInfo&&ifTokenOutdate==false}}">
+  <!-- 我的队伍、系统队伍 -->
+  <view class="type">
+    <!-- msg是红色；msg1是白色 -->
+    <button class="{{flag? 'msg':'msg1'}}" bindtap="change1">我的队伍</button>
+    <button class="{{flag? 'msg1':'msg'}}" bindtap="change2">系统队伍</button>
+  </view>
+</block>
+
+<!-- 组队信息 -->
+<view wx:for="{{groupList}}" wx:key="itemID" class='waikuang' data-id="{{groupList[index].groupId}}" bindtap='dongTai'>
+  <image src="{{groupList[index].groupImage}}" style="width:100px;height:100px;margin:3px;"></image>
+  <view class="mycenter">
+    <view style="display:flex;align-items: center;">
+      <view class='mycenterTitle'>{{groupList[index].groupName1}}</view>
+      <view class="tag">{{groupList[index].tagName}}</view>
+    </view>
+
+    <button catchtap="score" data-id="{{groupList[index].groupId}}" wx:if="{{groupList[index].status}}" class="minBtn"
+      style="width:50pt;padding:6pt;font-size:10pt;background-color:{{background}}">
+      {{groupList[index].label}}
+    </button>
+
+    <view class="date">{{groupList[index].fullMem}}人组，现有
+      <text style="font-weight:800;color:black">{{groupList[index].memNum}}</text>
+      人
+    </view>
+
+    <view style="display:flex;align-items: center;">
+      <view class="date">结束时间：{{groupList[index].deadline}}</view>
+      <view class="tag" style="background-color:#94b5c0" wx:if="{{groupList[index].leave}}">
+        余{{groupList[index].timeFromDdl}}天</view>
+      <view class="tag" style="background-color:#ef4f4f" wx:if="{{groupList[index].isShow}}">已结束</view>
+    </view>
+
+  </view>
+</view>
+
+<!-- 没有队伍时 -->
+<view wx:if="{{empty}}" class="empty">快去创建队伍吧~</view>

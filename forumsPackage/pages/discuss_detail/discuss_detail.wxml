@@ -1,0 +1,218 @@
+<wxs src="../../../wxs/subutil.wxs" module="tools" />
+<!--pages/discussion/detail3/detail3.wxml-->
+<!-- <text>pages/discussion/detail3/detail3.wxml</text> -->
+<view>
+  <view>
+    <view id="header">
+      <view class='head'>
+        <open-data bindtap="bindViewTap" class="userinfo-avatar" type="userAvatarUrl"></open-data>
+      </view>
+      <!-- <view class="forum-bar">
+        <view class="forum_appeal"><text class="appeal">{{forumName}}</text>讨论区</view>
+      </view> -->
+    </view>
+  </view>
+
+
+  <view class='waikuang' style="width:96%;">
+    <view>
+      <view class="container_head">
+        <image src="{{postil.wxUser.avatarUrl}}" class="post_img"></image>
+        <view class="auth_info">
+          <view class="author">{{postil.wxUser.nickName}}</view>
+          <view class="time">{{pubTime}}
+            <view class="inform" hover-class="inform-hover" catchtap="del_btn"
+              style="display:{{postil.ifMe? '':'none'}}">
+              删除</view>
+            <view class="inform" hover-class="inform-hover" data-statu="open"
+              style="display:{{postil.ifMe? 'none':''}};color:red !important;" data-reptype='1'
+              data-newsorcommentId="{{forumNewsId}}" catchtap="powerDrawer">举报</view>
+
+          </view>
+        </view>
+
+      </view>
+      <view class="post_content">
+        <view class="post-title">{{postil.title}}</view>
+        <view class="post_desp">
+          {{postil.content}}
+        </view>
+        <view class="container-img">
+          <view class="feature-box">
+            <view wx:for="{{picUrl}}" wx:key="*this" class="show-hxt">
+              <view class="room-box-item">
+                <!-- <text>{{item.name}}</text> -->
+                <image src="{{item}}" mode="widthFix" data-src="{{item}}" bindtap="imgEnlarge"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="container-file" style="display:{{fileUrl!=null? '':'none'}}">
+          <view style="padding:0 16px;">下载需消耗积分: <text style="color:red;">{{postil.scoreCost}}</text></view>
+          <view class="file-box" catchtap="downFile" hover-class="background-color:burlywood;">
+            <view class="file-left">
+              <image src="{{fileImg}}" data-src="{{item}}" bindtap="imgEnlarge" class="file_img"></image>
+            </view>
+            <view class="file-right">
+              {{postil.fileName}}
+            </view>
+          </view>
+        </view>
+
+        <view class="umcomm {{to_comment? 'comm_list':''}}">
+          <view style="display:flex;">
+            <view class="number">
+              <image class="img-num"
+                src="https://www.cqcwangluo.site/static/images/{{to_comment? 'comm':'comm_dark'}}.png"
+                catchtap="toComment">
+              </image>
+            </view>
+            <!-- 评论数的话直接获取评论列表的长度即可 -->
+            <view class="number data">{{CommentList.commentNum}}</view>
+            <view class="number">
+              <image class="img-num" src="https://www.cqcwangluo.site/static/images/{{ifLike? 'like':'like_dark'}}.png"
+                catchtap="toLike">
+              </image>
+            </view>
+            <view class="number data">{{likeNum}}</view>
+          </view>
+          <view class='box' style="display:{{to_comment? '':'none'}}">
+            <!-- 留言框 -->
+            <view class='bar-box'>
+              <input bindinput='changeInputValue' class='input-message-borad' placeholder='写下你的评论...'
+                placeholder-class='place-input' value='{{inputValue}}'>
+              <!-- <button size='mini' bindtap='sendComment' class="sendComment">点击</button> -->
+              </input>
+              <button bindtap='sendComment' class="sendComment" data-targetid="{{postil.wxUser.id}}">评论</button>
+            </view>
+            <view class='p'>
+              <text wx:if="{{CommentList.commentNum==0}}">{{to_comment? ' 暂无评论...':''}}</text>
+            </view>
+
+            <!-- 列表框 -->
+
+            <!-- <view>
+              <view class='item' wx:for='{{CommentList}}' wx:key="{{index}}">
+                <text class='contect-text'>{{item.msg}}</text>
+                <icon data-index='index' class='close-btn' type='cancel' bindtap='delMsg'></icon>
+              </view>
+            </view> -->
+            <view class="com_info" style="display:{{to_comment? '':'none'}}">
+              <view wx:for='{{CommentList.forumCommentVMS}}' wx:key="{{index}}" wx:for-item="fatherComment"
+                wx:for-index="index">
+                <view class="com_container">
+                  <view class="container_head">
+                    <image src="{{fatherComment.wxUser.avatarUrl}}" class="comm_img"></image>
+                    <view class="auth_info">
+                      <view class="author">{{fatherComment.wxUser.nickName}}</view>
+                      <view class="time">{{tools.sub(fatherComment.addTime)}}
+                        <view class="inform" hover-class="inform-hover" catchtap="delComm_btn"
+                          style="display:{{fatherComment.ifMe? '':'none'}};color:black!important;"
+                          data-commentid="{{fatherComment.id}}" data-type='1'>
+                          <!-- style="display:{{fatherComment.ifMe? '':'none'}}" -->
+                          删除</view>
+                        <view class="inform" hover-class="inform-hover" catchtap="powerDrawer" data-statu="open"
+                          data-repType='2' data-newsOrCommentId="{{fatherComment.id}}"
+                          style="display:{{fatherComment.ifMe? 'none':''}};">
+                          <!-- style="display:{{fatherComment.ifMe? 'none':''}};color:red !important;"  -->
+                          举报
+                        </view>
+                      </view>
+                    </view>
+                    <button style="font-size:10px;padding:0px;float:right;height:20px;line-height:20px;width:30px;"
+                      catchtap="addReply" data-currcommidx="{{index}}">回复</button>
+                  </view>
+                  <view class="com_desp">{{fatherComment.content}}</view>
+                </view>
+
+                <!-- wx:if="{{index==currCommIdx}}" -->
+                <block wx:if="{{index==currCommIdx}}">
+                  <!-- 留言框 -->
+                  <view class='bar-box' style="margin-left:30px;">
+                    <input bindinput='changeReplyValue' class='input-message-borad' placeholder='写下你的回复...'
+                      placeholder-class='place-input' value='{{ReplyValue}}' style="width:100%;">
+                    <!-- <button size='mini' bindtap='sendComment' class="sendComment">点击</button> -->
+                    </input>
+                    <button
+                      style="font-size:10px;padding:0px;float:right;height:20px;line-height:20px;width:30px;background-color: #FF8C69"
+                      catchtap="sendReply">确定</button>
+                    <!-- data-targetid="{{fatherComment[index].wxUser.id}}" -->
+                    <!-- data-tocommentfirstclassid="{{fatherComment[currCommIdx].id}}" -->
+
+                  </view>
+                </block>
+                <!-- ！！！循环显示二级评论 -->
+                <view wx:for="{{fatherComment.sonComment}}" wx:for-item="sonComment">
+                  <!-- <view> -->
+                  <view class="com_container" style="margin-left:30px;">
+                    <view class="container_head">
+                      <image src="{{sonComment.wxUser.avatarUrl}}" class="comm_img"></image>
+                      <view class="auth_info">
+                        <view class="author">{{sonComment.wxUser.nickName}}</view>
+                        <view class="time">{{tools.sub(sonComment.addTime)}}
+                          <view class="inform" hover-class="inform-hover" catchtap="delComm_btn"
+                            style="display:{{sonComment.ifMe? '':'none'}};color:black!important;"
+                            data-commentid="{{sonComment.id}}" data-type='2'>
+                            <!-- style="display:{{sonComment.ifMe? '':'none'}}" -->
+                            删除</view>
+                          <view class="inform" hover-class="inform-hover" catchtap="powerDrawer" data-statu="open"
+                            data-repType='2' data-newsOrCommentId="{{sonComment.id}}"
+                            style="display:{{sonComment.ifMe? 'none':''}};">
+                            <!-- style="display:{{sonComment.ifMe? 'none':''}};color:red !important;"  -->
+                            举报
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                    <view class="com_desp">{{sonComment.content}}</view>
+                  </view>
+                </view>
+              </view>
+
+            </view>
+          </view>
+
+        </view>
+
+        <!-- <view class="comment">
+          <image src="/images/评论.png" style="width:20px;height:20px;margin-top:4px;margin-left:25px"></image>3
+          <image src="/images/点赞.png" style="width:20px;height:20px;margin-top:4px;margin-left:25px"></image>6
+        </view> -->
+
+
+      </view>
+    </view>
+  </view>
+
+  <!--mask，点击举报时出现-->
+  <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+  <!--点击举报后才出现的内容content-->
+  <!--使用animation属性指定需要执行的动画-->
+  <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+
+    <!--drawer content-->
+    <view class="drawer_title">
+      举报
+      <image class="close" src="https://www.cqcwangluo.site/static/images/close.png" data-statu="close"
+        bindtap="powerDrawer"></image>
+    </view>
+    <form bindsubmit="repFormSubmit" bindreset="formReset">
+      <view class="drawer_content">
+        <view class="top grid">
+          <label class="title col-0"><label style="color:red;font-weight:bolder">*</label>举报理由</label>
+          <textarea class="input_base input_h150 col-1 " bindblur="bindTextAreaBlur" placeholder="请填写举报理由"
+            name="repReason"></textarea>
+        </view>
+      </view>
+      <view class="btn-area">
+        <!-- <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view> -->
+        <button class="btn_submit" formType="submit" data-statu="close" catchtap="powerClose"
+          style="background-color:white;box-shadow: 0 0 0 0 black;">确定</button>
+        <button class="btn_submit btn_reset" formType="reset" catchtap="powerDrawer"
+          style="background-color:white;box-shadow: 0 0 0 0 black;">重置</button>
+      </view>
+    </form>
+  </view>
+
+
+</view>

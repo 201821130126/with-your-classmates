@@ -1,0 +1,49 @@
+<!-- 意见反馈 -->
+<view class="page">
+  <!-- 联系我们 -->
+  <view class="main">
+    <view class="banner">
+      <image src="https://www.cqcwangluo.site/static/images/list.png" mode="aspectFill"></image>
+    </view>
+    <view>
+      <button class='btn1' open-type='contact' hover-class="btn2">
+        <image class='btnImg' src="/images/service.png"></image>
+      </button>
+      <view class="mcname">伴你</view>
+      
+    </view>
+    <view class="mcinfo">
+      <text class="mctlt">客服电话：</text>
+      <text class="mcval">15935750307</text>
+    </view>
+
+    <view class="mcinfo">
+      <text class="mctlt">伴你邮箱：</text>
+      <text class="mcval">shy_yjya180717@163.com</text>
+    </view>
+    <view class="mcinfo">
+      <text class="mctlt">客服时间：</text>
+      <text class="mcval">8:00~18:00</text>
+    </view>
+    <view class="mcinfo" bindtap="click">
+      <text class="mctlt">所在城市：</text>
+      <text class="mcval">武汉</text>
+    </view>
+  </view>
+  <form>
+    <view class="page__bd">
+      <view class="section">
+        <textarea bindinput="advice" class="adviceIn" placeholder="说说您对我们的意见或建议，我们将不断改进，感谢您的支持！" name="advice" />
+        </view>
+      <view class="section">
+        <input type="number" bindinput="phone" class="phoneIn"  placeholder="留下您的联系方式，方便我们和您联系" name="phone"/>
+      </view>
+      <view class="section">
+        <button bindtap="onSubmit" class="weui-btn" type="default" size="default" style="width:100%;margin-top:5%;">
+          提交
+        </button>
+      </view>
+    </view>
+    
+  </form>
+</view>

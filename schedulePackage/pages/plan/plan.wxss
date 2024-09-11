@@ -1,0 +1,310 @@
+/* pages/plan/plan.wxss */
+.dongTai{
+  /* 讲解打卡规则 */
+ 
+  color: white;
+  display: inline-block;
+  margin: 10px;
+  z-index: 1;
+  position: fixed;
+  padding:3px;
+  border-radius:0.5ch;
+}
+
+.drawerdongTais {
+  width: 630rpx;
+  height: auto;
+  line-height: 40rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+  padding: 40rpx;
+  box-sizing: border-box;
+  margin-left: 60rpx;
+  position: fixed;
+  top: 25%;
+  left: 0;
+  z-index: 1001;
+  background-color:rgba(0,0,0,0.5);
+  color:white;
+  text-align: left;
+
+}
+
+.navigator{
+  margin:5px;
+  font-size: 20px;
+}
+/* 返回 */
+.back {
+  position:relative;
+  z-index:2;
+  width: 40rpx;
+  height: 40rpx;
+  
+}
+.daka{
+  color:white;
+  
+  padding:6pt;
+float: right;
+  position: relative;
+  margin-left:70px;
+ bottom: 40rpx;
+  /* left: 220rpx; */
+  background-color: rgb(245, 209, 245);
+}
+/* 完成打卡 */
+.finish
+{
+  color:black;
+  position: relative;
+  margin:0px;
+  bottom: 40rpx;
+  left: 220rpx;
+  background-color:"#d8e3e7";
+}
+.waikuang{
+  display: flex;
+  height: 70px;
+  border-bottom: 1px solid rgb(225, 223, 223);
+  flex-direction: row;  
+  margin: 5px 0px;
+  padding: 5px 0px;
+}
+.waikuangex{
+  /* display: flex; */
+  height: 15px; 
+  flex-direction: row;  
+  margin: 5px 0px;
+  padding: 5px 0px;
+}
+.myleft{
+  margin-right: 10px;
+}
+.mycenter{
+  flex: 1;
+  margin-left: 5px;
+}
+.mycenterTitle{
+  margin-top: 3px ;
+  /* 字体大小 */
+  font-size: 20px;
+  color: rgb(9, 9, 48);
+  margin-bottom:12px;
+  font-weight: 700;
+  /* 字体 */
+  font-family: Arial, Helvetica, sans-serif;
+}
+.info{
+  flex: 1;
+  position: relative;
+  margin-top: 30px ;
+  font-size: 17px;
+  color: rgb(90, 86, 86);
+  margin:2px;
+}
+.myright{
+  width: 40rpx;
+  height:40rpx;
+  margin-top: 25px;
+}
+.myrightex{
+  width: 40rpx;
+  height:40rpx;
+  float: right;
+  /* margin-left:325px; */
+}
+.add{
+  display: flex;
+  margin:0 auto;
+  background-color:#e4765d;
+  width:30px;
+  height: 40px;
+  border-radius:30rem;
+  color:#f8ede3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 800;
+}
+.tits {
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+  overflow: hidden;
+  margin: 60rpx 0 40rpx 0;
+  line-height: 50rpx;
+}
+
+/* 增加日程 */
+/* pages/insertPlan/insertPlan.wxss */
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #fff;
+  opacity: 0.8;
+  overflow: hidden;
+}
+.drawerBox {
+  width: 630rpx;
+  height: auto;
+  line-height: 40rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+  padding: 40rpx;
+  box-sizing: border-box;
+  margin-left: 60rpx;
+  position: fixed;
+  top: 25%;
+  left: 0;
+  z-index: 1001;
+  background-color: #fff;
+}
+
+.close {
+  width: 50rpx;
+  height: 50rpx;
+  float: right;
+  overflow: hidden;
+  color:black;
+}
+.btn {
+  width: 550rpx;
+  margin-bottom: 0;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 30rpx;
+  background-color: #200E32;
+  color: rgba(255, 255, 255, 100);
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 100);
+  margin-top: 20rpx;
+}
+textarea{
+  width: 100%;
+}
+
+/* app css stylesheet */
+
+page {
+  color: #333;
+  background-color: #ddd;
+  overflow: hidden;
+}
+
+button {
+  border: 0 solid #0010ae;
+  background-color: #1f2afe;
+  color: #fff;
+  font-size: 120%;
+  padding: 8px 16px;
+  outline-width: 0;
+  -webkit-appearance: none;
+  box-shadow: 0 8px 17px rgba(0, 0, 0, 0.2);
+}
+
+.screen {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  -webkit-overflow-scrolling: touch;
+  
+}
+
+.contact {
+  position: relative;
+  padding: 16px;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.avatar {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 0;
+}
+
+.name {
+  height: 65px;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.list {
+  padding-top: 8px;
+  text-align: center;
+}
+
+.screen1 {
+  overflow-y: scroll;
+  padding: 0;
+}
+
+.screen1 .contact {
+  margin: 16px;
+  height: auto;
+  width: auto;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.item {
+  text-align: center;
+}
+
+.screen2-button {
+  display: block;
+  margin: 24px auto;
+}
+
+.paragraph {
+  -webkit-transition: transform ease-in-out 300ms;
+  transition: transform ease-in-out 300ms;
+  -webkit-transform: scale(0.6);
+  transform: scale(0.6);
+}
+
+.enter.paragraph {
+  transform: none;
+}
+
+.finish{
+  left: 500rpx;
+  bottom: 20rpx;
+  color:#91c788;
+}
+.tag{
+  font-size: 10px;
+  font-weight:400;
+ margin-left: 3px;
+ margin-top:3px;
+ background-color: #d8ac9c;
+ height: 20px;
+ padding-left:5px;
+ padding-right:5px;
+ color:white;
+ border-radius: 10px;
+ display:flex;
+ align-items: center;
+
+}
+
+.choose{
+  pointer-events: none;
+}

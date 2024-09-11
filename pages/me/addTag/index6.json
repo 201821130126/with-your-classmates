@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "心理",
+  "usingComponents": {
+    "ec-canvas": "../../../../ec-canvas/ec-canvas"
+  }
+}

@@ -1,0 +1,24 @@
+<!-- 联系我们 -->
+<view class="main">
+  <view class="banner">
+      <image src="https://www.cqcwangluo.site/static/images/list.png" mode="aspectFill"></image>
+  </view>
+  <view class="mcname">伴你</view>
+  <view class="mcinfo">
+      <text class="mctlt">客服电话：</text>
+      <text class="mcval">15935750307</text>
+  </view>
+  
+  <view class="mcinfo">
+      <text class="mctlt">伴你邮箱：</text>
+      <text class="mcval">shy_yjya180717@163.com</text>
+  </view>
+  <view class="mcinfo">
+      <text class="mctlt">客服时间：</text>
+      <text class="mcval">8:00~18:00</text>
+  </view>
+  <view class="mcinfo" bindtap="click">
+      <text class="mctlt">所在城市：</text>
+      <text class="mcval">武汉</text>
+  </view>
+</view>

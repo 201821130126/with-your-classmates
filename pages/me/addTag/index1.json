@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "留学",
+  "usingComponents": {
+    "ec-canvas": "../../../../ec-canvas/ec-canvas"
+  }
+}

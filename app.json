@@ -1,0 +1,132 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/me/me",
+    "pages/me/line/index",
+    "pages/me/addTag/addTag",
+    "pages/me/addTag/index",
+    "pages/me/addTag/index1",
+    "pages/me/addTag/index2",
+    "pages/me/addTag/index3",
+    "pages/me/addTag/index4",
+    "pages/me/addTag/index5",
+    "pages/me/addTag/index6",
+    "pages/me/addTag/index7",
+    "pages/me/addTag/index8",
+    "pages/me/addTag/index9",
+    "pages/me/addTag/index10",
+    "pages/me/addTag/index11",
+    "pages/message/message",
+    "pages/forums/forums",
+    "pages/choose/choose"
+  ],
+  "subpackages": [
+    {
+      "root": "forumsPackage/",
+      "pages": [
+        "pages/accuse/accuse",
+        "pages/sendPostil/sendPostil",
+        "pages/discuss/discuss",
+        "pages/discuss_detail/discuss_detail"
+      ]
+    },
+    {
+      "root": "makeTeamPackage",
+      "pages": [
+        "pages/label/label",
+        "pages/recommand/recommand",
+        "pages/recommandTeam/recommandTeam",
+        "pages/teamInfo/teamInfo",
+        "pages/recommandTeam/teamTag"
+      ]
+    },
+    {
+      "root": "mePackage/",
+      "pages": [
+        "pages/me/contact/contact",
+        "pages/me/fdback/fdback",
+        "pages/me/history/history",
+        "pages/me/myPostil/myPostil",
+        "pages/me/news/news",
+        "pages/me/personal_information/personal_information",
+        "pages/me/personalTag/personalTag",
+        "pages/me/personalTag/updateTag",
+        "pages/me/score/score",
+        "pages/me/top/top",
+        "pages/me/history/checkScore/checkScore"
+       
+      ]
+    },
+    {
+      "root": "messagePackage/",
+      "pages": [
+        "pages/inviteDetail/inviteDetail",
+        "pages/messageDetail/messageDetail",
+        "pages/personalMessageDetail/personalMessageDetail"
+      ]
+    },
+    {
+      "root": "schedulePackage/",
+      "pages": [
+        "pages/dongTai/dongTai",
+        "pages/matePlan/matePlan",
+        "pages/plan/plan",
+       
+        "pages/groupInfo/groupInfo",
+        "pages/score/score",
+        "pages/invite/invite",
+        "pages/compInfo/compInfo",
+        "pages/systemTeam/systemTeam"
+      ]
+    }
+   
+  ],
+  "useExtendedLib": {
+    "weui": true
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "伴你",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#ff7575",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tabbar1.png",
+        "selectedIconPath": "images/tabbar1_selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/forums/forums",
+        "iconPath": "images/tabbar2.png",
+        "selectedIconPath": "images/tabbar2_selected.png",
+        "text": "讨论区"
+      },
+      {
+        "pagePath": "pages/choose/choose",
+        "iconPath": "images/tabbar3.png",
+        "selectedIconPath": "images/tabbar3.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "iconPath": "images/tabbar4.png",
+        "selectedIconPath": "images/tabbar4_selected.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "images/tabbar5.png",
+        "selectedIconPath": "images/tabbar5_selected.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

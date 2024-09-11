@@ -1,0 +1,42 @@
+<view>
+  <view style="margin-bottom: 5px;color:grey;font-size:26rpx;"><view class="tag">!</view>队伍评分是由该队内所有成员的评分计算均值得到。</view>
+  <view style="margin-bottom: 5px;color:grey;font-size:26rpx;"><view class="tag">!</view>评分为0表示该队伍中已有成员尚无组队记录！</view>
+  <view style="color:grey;font-size:26rpx;"><view class="tag">!</view>当选择推荐队伍发送加入队伍请求后，该队伍队长可在消息界面查看并处理消息，用户可查看队长处理后的返回消息</view>
+<view class="top">推荐top榜</view>
+<view class="recom">
+  <view class="team_info">
+    <text  class="title1">头像</text>
+    <view class="title2">昵称</view>
+    <view class="title3">评分</view>
+    <view style="margin-left:50rpx;">选框</view>
+  </view>
+  <image class="mytest" src="https://www.cqcwangluo.site/static/images/bg3.png"></image>
+  <!-- <view class="team_info" wx:for="{{group}}" wx:key="{{group}}">
+    <image  class="team_img" src="{{item.groupImage}}" mode="widthfix"></image>
+    <view class="team_name">{{item.groupName}}</view>
+    <view class="select">{{item.point}}
+      <image src="https://www.cqcwangluo.site/static/images/toEvaluate.png" class="star"></image>
+    <checkbox bindtap="tap" style="padding-left:40rpx;" disabled="{{disable}}"></checkbox></view>
+  </view> -->
+ 
+  <view class="team_info" wx:if="{{visible1}}">
+    <image  class="team_img" src="{{item1.groupImage}}" mode="widthfix"></image>
+    <view class="team_name">{{item1.groupName}}</view>
+    <view class="select">{{item1.point}}<image wx:if="{{visible1}}" src="https://www.cqcwangluo.site/static/images/toEvaluate.png" class="star"></image><checkbox bindtap="tap" style="margin-left:45rpx;" disabled="{{disable}}"></checkbox></view>
+  </view>
+  
+  <view class="team_info" wx:if="{{visible2}}">
+    <image  class="team_img" src="{{item2.groupImage}}" mode="widthfix"></image>
+    <view class="team_name">{{item2.groupName}}</view>
+    <view class="select">{{item2.point}}<image wx:if="{{visible2}}" src="https://www.cqcwangluo.site/static/images/toEvaluate.png" class="star"></image><checkbox bindtap="tap1" style="margin-left:45rpx;" disabled="{{disable}}"></checkbox></view>
+  </view>
+
+  <view class="team_info" wx:if="{{visible3}}">
+    <image  class="team_img" src="{{item3.groupImage}}" mode="widthfix"></image>
+    <view class="team_name">{{item3.groupName}}</view>
+    <view class="select">{{item3.point}}<image wx:if="{{visible3}}" src="https://www.cqcwangluo.site/static/images/toEvaluate.png" class="star"></image><checkbox bindtap="tap2" style="margin-left:45rpx;" disabled="{{disable}}"></checkbox></view>
+  </view>
+  <view class="dongTai" wx:if="{{visible}}">暂无推荐列表！</view>
+
+</view>
+</view>

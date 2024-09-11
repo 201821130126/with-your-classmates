@@ -1,0 +1,22 @@
+<!-- 历史的组队信息 -->
+<view wx:for="{{groupList}}" wx:key="itemID" class='waikuang' data-id="{{groupList[index].groupId}}" bindtap='dongTai' >
+      <image src="{{groupList[index].groupImage}}" style="width:100px;height:100px;margin:3px;"></image>
+       <view class="mycenter">
+         <view style="display:flex;align-items: center;" >
+           <view class='mycenterTitle'>{{groupList[index].groupName}}</view>
+           <view class="tag">{{groupList[index].tagName}}</view>
+          </view>
+         
+          <button disabled="{{groupList[index].disabled}}" bindtap="checkScore"  data-id="{{groupList[index].groupId}}" wx:if = "{{groupList[index].status}}" class="minBtn" style="width:60pt;padding:6pt;font-size:10pt;background-color:#ff8474" >
+          {{groupList[index].label}}
+          </button>
+
+<!-- 显示真实组队的人数，不显示设定的人数 -->
+ 
+          <view class="date" >队内剩余{{groupList[index].memNum}}人</view>
+          <view class="date" >结束时间：{{groupList[index].deadline}}</view>
+   
+       </view>
+</view>
+
+<view wx:if="{{empty}}" class="empty">暂无历史组队记录</view>

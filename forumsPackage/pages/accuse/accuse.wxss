@@ -1,0 +1,29 @@
+/* pages/discussion/detail.wxss */
+
+  
+
+.theme_picker{
+  padding: 20rpx;
+}
+.theme_picker span{
+    background:#fff;
+    display: inline-block;
+    border: 0.1rpx solid #000;
+    padding: 3rpx 20rpx;
+}
+.title{
+    padding:20rpx;
+    border-bottom:1rpx solid #000;
+}
+.info{
+    padding:20rpx;
+}
+.dongTais{
+    color:red;
+    font-size:small;
+    padding:20rpx; 
+}
+
+.create{
+    background-color: #F59A23;
+}

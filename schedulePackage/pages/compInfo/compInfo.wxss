@@ -1,0 +1,47 @@
+/* pages/compInfo/compInfo.wxss */
+.title{
+  margin:60rpx;
+  font-size: 20px;
+  font-weight: 900;
+  padding-top:35px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  
+
+}
+.image {
+  height: 300rpx;
+  width: 600rpx;
+  margin-left:60rpx;
+  /* margin-right:6 */
+}
+.background{
+  position: fixed;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  top:0;
+  left:0;
+
+}
+.content{
+margin-top: 40px;
+margin:80rpx;
+display:flex;
+align-items:center;
+justify-content:center
+}
+.url {
+  margin-top:100px;
+  text-align: center;
+  font-size:14px;
+
+  }
+.fabu{
+  font-size: 12px;
+  position: relative; 
+ margin-left:140px;
+ margin-top:30px;
+}
+

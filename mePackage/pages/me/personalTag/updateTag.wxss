@@ -1,0 +1,29 @@
+/* pages/personalTag/updateTag.wxss */
+.univ_info{
+  display:inline-flex;
+  border-radius: 5%;
+  margin:20rpx 30rpx;
+  padding: 15rpx;
+  background-color: rgb(244,245,249);
+}
+.category{
+  font-weight:bolder;
+  margin-top: 40rpx;
+  margin-left:30rpx;
+  display: inline-block;
+}
+.button{
+  position:fixed;
+  bottom:0;
+  margin-top:150rpx;
+  background-color: white;
+  width:100%;
+  z-index: 1;
+}
+.dele{
+  /* background-color: rgb(253, 237, 237); */
+  /* margin-top: 10rpx; */
+  /* padding-top:10rpx; */
+  border-top-right-radius: 8%;
+  border-bottom-right-radius:8%;
+}

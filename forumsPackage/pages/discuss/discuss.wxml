@@ -1,0 +1,140 @@
+<wxs src="../../../wxs/subutil.wxs" module="tools" />
+
+<view id="all" style="background-image: url(https://www.cqcwangluo.site/static/images/bgbg.png);">
+  <view id="{{isHide?'':'left'}}" style="display:{{isHide? 'none' : 'block'}};padding-top: 45px !important;">
+    <!-- <view id="left"> -->
+    <view class="talk" style="display:{{isHide? 'none' : 'block'}};postion:fixed;">
+      <view class="talkname" hover-class='talkname-hover'>
+        {{forumName}}
+      </view>
+      <view class="talkplace">
+        讨论区
+      </view>
+    </view>
+    <view class="sendpostil" style="display:{{isHide? 'none' : 'block'}};postion:fixed;top:20%;">
+      <button size="mini" bindtap="ToSendPostil">我想发帖</button>
+    </view>
+  </view>
+
+
+  <!-- 发布帖子 -->
+
+  <view class="arrow" style="display:{{show?'none':'block'}};z-index:10001">
+    <view wx:if='{{isHide}}' bindtap="open">
+      <button class="add" style="width: 48px;height: 48px;">
+        +
+      </button>
+    </view>
+    <view wx:else bindtap="close">
+      <button class="add" style="width: 48px;height: 48px;">
+        -
+      </button>
+
+    </view>
+  </view>
+  <view id="{{isHide? 'rightAll' : 'right'}}">
+
+    <view id="header">
+
+      <view class="weui-search-bar">
+
+        <view class="weui-search-bar__form" style="{{isHide? 'margin-left: 45px !important;':''}}">
+          <!-- 搜索框 -->
+          <view class="weui-search-bar__box">
+
+            <input type="text" class="weui-search-bar__input" placeholder="请输入待搜索帖子" bindinput="inputPostil"
+              style="display:{{show?'none':''}}" value="{{inputValue}}" />
+          </view>
+          <!-- 搜索按钮,调用搜索查询方法 -->
+          <view class="search-btn" catchtap='searchPostil' style="background-color:{{themeColor}}">搜索
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+    <!-- <view class='bg'> -->
+    <view class="bg" enable-flex="true">
+      <view wx:if="{{postils.length == 0}}">
+        <view class="word_appeal" style="padding:10px">暂无相关讨论帖
+        </view>
+      </view>
+      <view class="screen screen1">
+        <!-- 使用block来做这个循环 -->
+        <block wx:for="{{postils}}" wx:key="id" wx:for-item="postil">
+          <view class="postil" bindtap="showNext" data-idx="{{index}}">
+            <!-- {{index}}表示列表的索引 -->
+            <!-- wx:for-item给列表赋值别名 -->
+            <!-- transform：是否进行动画 duration：动画持续时间 key:映射标记-->
+            <share-element class="avatar" key="avatar" duration="{{duration}}" transform="{{transformIdx === index}}">
+              <image style="width: 40px;" mode="widthFix" src="{{postil.wxUser.avatarUrl}}"></image>
+            </share-element>
+            <share-element duration="{{duration}}" class="avatar-name" key="avatar-name"
+              transform="{{transformIdx === index}}">
+              {{postil.wxUser.nickName}}
+            </share-element>
+            <share-element class="avatar-time" key="avatar-time" duration="{{duration}}" transform="{{transformIdx === index}}">
+              {{tools.sub(postil.addTime)}}
+            </share-element>
+            <share-element duration="{{duration}}" class="post-title" key="name" transform="{{transformIdx === index}}">
+              {{postil.title}}
+            </share-element>
+            <view style="display:flex;">
+              <view class="number">
+                <image class="img-num" src="https://www.cqcwangluo.site/static/images/comm_dark.png"
+                  bindtap="toComment"></image>
+              </view>
+              <view class="number data">{{postil.commentNum}}</view>
+              <view class="number">
+                <image class="img-num"
+                  src="https://www.cqcwangluo.site/static/images/{{postil.ifLike? 'like':'like_dark'}}.png"
+                  bindtap="toLike"></image>
+              </view>
+              <view class="number data">{{postil.likeNum}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <!-- <navigator url='#'>
+      <view class='waikuangex' catchtap='dongTai'>
+        <view style="font-size:14px;color:#4682B4;float:left;">查看更多</view>
+        <image src='/images/arrow-right.png' class='myrightex'></image>
+      </view>
+    </navigator> -->
+
+  </view>
+
+  <!-- 讨论区详情页 -->
+  <page-container show="{{show}}" overlay="{{overlay}}" close-on-slide-down duration="{{duration}}"
+    position="{{position}}" bindbeforeenter="onBeforeEnter" bindenter="onEnter" bindafterenter="onAfterEnter"
+    bindbeforeleave="onBeforeLeave" bindleave="onLeave" bindafterleave="onAfterLeave" bindclickoverlay="onClickOverlay"
+    style="height:100%;">
+    <view class="screen screen2"
+      style="height:100%;background-image: url(https://www.cqcwangluo.site/static/images/bgbg.png);">
+      <view class="postil" style="background-image: url(https://www.cqcwangluo.site/static/images/bgbg.png);">
+        <share-element class="avatar" duration="{{duration}}" key="avatar" transform>
+          <image style="width: 40px;" mode="widthFix" src="{{postil.wxUser.avatarUrl}}" />
+        </share-element>
+        <share-element class="avatar-name" key="avatar-name" duration="{{duration}}" transform>
+          {{postil.wxUser.nickName}}
+        </share-element>
+        <share-element class="avatar-time" key="avatar-time" duration="{{duration}}" transform>
+          {{tools.sub(postil.addTime)}}
+        </share-element>
+        <share-element duration="{{duration}}" class="post-title" key="name" transform>
+          {{postil.title}}
+        </share-element>
+
+        <view class="paragraph {{show ? 'enter' : ''}}">
+          <view style="word-break: break-all;">{{postil.content}}</view>
+        </view>
+        <button bindtap="showPrev" class="screen2-btn" hidden="{{!show}}" hover-class="none">返回</button>
+        <button bindtap="showPostDetail" class="screen2-btn" hidden="{{!show}}" hover-class="none">查看帖子详情</button>
+
+
+
+      </view>
+    </view>
+  </page-container>
+</view>

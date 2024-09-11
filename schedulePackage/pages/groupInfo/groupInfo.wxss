@@ -1,0 +1,175 @@
+/* pages/groupInfo/groupInfo.wxss */
+/* 打分  */
+page{
+  display:flex; 
+  width: 100%;
+  height: 100%;
+  justify-content:center; 
+  align-items:center;
+ 
+}
+.background{
+  height: 504;
+  width:320;
+  
+  /* background-size: 100% 100%; */
+  overflow:hidden; 
+  position:fixed;
+  margin: 0rpx; 
+  padding: 0rpx; 
+}
+.mytest{
+  position:absolute;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  top:0;
+  left:0;
+}
+.groupName{
+  position: absolute;
+  top: 58rpx;
+  left: 0;
+	right: 0;
+	margin: auto;
+  color:#1b1717;
+  font-size: 70rpx;
+  font-weight: 550;
+  text-align: center;
+}
+
+.isRuleShow{
+  display: block;
+}
+.isRuleHide{
+  display: none;
+}
+.ruleZhezhao{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color:rgba(0, 0, 0, .5);
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+.ruleZhezhaoContent{
+  padding: 20rpx 0;
+  width: 80%;
+  background: #e1d2b1;
+  margin: 40% auto;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+.ruleZhezhaoText{
+  width: 80%;
+  font-size: 30rpx;
+  color: #856d5f;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 25rpx 0 25rpx 0;
+}
+.ruleZhezhaoText text:nth-child(1){
+  color: #fff;
+  font-size: 40rpx;
+  height: 60rpx;
+  width: 60rpx;
+  background: #664a2c;
+  display: block;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  margin-right: 10rpx;
+}
+.ruleZhezhaoText text:nth-child(2){
+  flex-wrap:wrap;
+  width: 80%;
+}
+.ruleHide{
+  height: 60rpx!important;
+  width: 60rpx!important;
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
+}
+.rule{
+  display: block;
+  border: 1px solid #fff;
+  width: 100rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #fff;
+  height: 60rpx;
+  font-size: 30rpx;
+  border-radius: 30rpx;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}
+
+
+/* 星星页面 */
+/* pages/score/score.wxss */
+image{ 
+  height: 60rpx; 
+  width: 60rpx; 
+  display: inline-block
+ }
+.class0{
+ 
+  
+}
+ .class1{
+   font-weight: 700;
+   font-size:25px;
+   color:rgb(112, 62, 5);
+   text-align: center;
+   margin-top:60px;
+
+ }
+ .class2{
+  color:rgb(48, 27, 3);
+  margin-bottom: 10px;
+  font-weight: 700;
+ }
+.class3{
+  margin-bottom: 25px;
+}
+
+.star-image{
+  position: absolute;
+  top: 350rpx;
+  margin-left : 10% ;
+  width: 80rpx;
+  height: 80rpx;
+  src: "/images/star.png";
+}
+.item{
+  position: absolute;
+  top: 50rpx;
+  width: 100rpx;
+  height: 100rpx;
+}
+.score{
+  position:absolute;
+  top:600rpx;
+  margin-left : 10% ;
+}
+
+.btn {
+  color:white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  margin:20%
+}
+
+wux-col{
+  margin-top:2%
+}

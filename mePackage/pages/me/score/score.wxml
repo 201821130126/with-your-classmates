@@ -1,0 +1,13 @@
+<!--pages/me/score/score.wxml-->
+<wxs src="../../../../wxs/subutil.wxs" module="tools" />
+<view>
+   <view style="display:inline-flex;">目前总积分：<view style="color:red">{{totalScore}}</view>
+   </view>
+   <view style="float: right;margin-right: 10px;color: grey;">初始积分：500</view>
+   <view wx:for="{{item}}" class="waikuang">
+      <text style="color:rgb(64,64,188)">{{tools.event(item.description)}}</text>
+      {{tools.type(item.description)}}
+      <text style="font-weight:bold;">{{tools.value(item.description)}}</text>
+      积分
+   </view>
+</view>

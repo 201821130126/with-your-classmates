@@ -1,0 +1,99 @@
+page{
+  background-color:#F5F5F5;
+}
+.star {
+  width: 20px;
+  height: 20px;
+}
+.bgcolor{
+  background-color: rgb(247,247,247);
+}
+.color{
+  background-color: white;
+}
+.userinfo-avatar {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 60rpx;
+  border-radius: 50%;
+}
+.b1{
+  width:86vw;
+  height:300rpx;
+  padding: 0 7vw;
+  border:3px solid #F5F5F5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center
+}
+.head{
+  overflow: hidden;
+  border-radius:60%;
+  width: 300rpx;
+  height: 300rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.name{
+  line-height: 60rpx;
+  width: 200rpx;
+  padding-left:75rpx;
+  font-size: 50rpx;
+  text-align: center
+}
+.float{ 
+  float:left;
+}
+.b2{
+  width:700rpx;
+  height:50rpx;
+  border-style:6px solid #F5F5F5;
+}
+.text{
+  margin-top:5rpx;
+  padding-top: 35rpx;
+  padding-bottom: 35rpx;
+  padding-left: 50rpx;
+}
+.image{
+  width:60rpx;
+  height:60rpx;
+  float: left;
+  padding-right: 20rpx;
+  padding-top: 20rpx;
+}
+.image2{
+  width:60rpx;
+  height:60rpx;
+  padding-left: 400rpx;
+}
+
+.view_2 {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  padding: 10px 0;
+}
+
+.view_tupianwenzi {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  align-items: center;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+}
+
+.image_tupian {
+  display: flex;
+  width: 70rpx;
+  height: 70rpx;
+}

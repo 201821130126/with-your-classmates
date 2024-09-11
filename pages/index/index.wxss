@@ -1,0 +1,172 @@
+.swiper {
+  height: 400rpx;
+  width: 100%;
+}
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+/* 组队信息 */
+navigator{
+  margin:5px;
+  font-size: 20px;
+}
+.empty{
+  font-size: 20px;
+  font-weight: 500;
+  margin-top:90px;
+  align-items: center;
+  text-align: center;
+}
+.minBtn{
+  background-color:pink;
+  color:white;
+  position: relative;
+  top: 0rpx;
+  left: 120rpx;
+}
+.waikuang{
+  display: flex; 
+  border-bottom: 1px solid rgb(225, 223, 223);
+  flex-direction: row;  
+  margin: 5px 0px;
+  padding: 5px 0px;
+}
+.waikuangex{
+  /* display: flex; */
+  height: 15px; 
+  flex-direction: row;  
+  margin: 5px 0px;
+  padding: 5px 0px;
+}
+.myleft{
+  margin-right: 10px;
+}
+.mycenter{
+  flex: 1;
+  margin-left: 5px;
+}
+.mycenterTitle{
+  margin-top: 3px ;
+  /* 字体大小 */
+  font-size: 20px;
+  font-weight: 600;
+  /* 字体 */
+  color:#333333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.tag{
+  font-size: 10px;
+  font-weight:400;
+ margin-left: 3px;
+ background-color: #d8ac9c;
+ /* height: 20px; */
+ padding-left:5px;
+ padding-right:5px;
+ color:white;
+ border-radius: 10px;
+ display:flex;
+ align-items: center;
+
+}
+
+
+.date{
+  flex:none;
+  margin-top: 30px ;
+  font-size: 12px;
+  color: rgb(181,181,181);
+  margin-top:0pt;
+  
+}
+.myright{
+  width: 40rpx;
+  height:40rpx;
+  margin-top: 25px;
+}
+.myrightex{
+  width: 40rpx;
+  height:40rpx;
+  float: right;
+  /* margin-left:325px; */
+}
+
+/* 两种队伍列表 */
+.type{
+  display: flex;
+  flex-direction: row;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+}
+.msg1{
+  margin-left:10px;
+  background-color: rgb(248,248,248);
+  
+}
+.msg{
+  margin-left:10px;
+  background-color:rgb(255,136,130)
+}
+
+/* 登录页面涉及 */
+.header {
+  position: relative;
+  margin: 90rpx 0rpx 90rpx 50rpx;
+  width: 650rpx;
+  height: 320rpx;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /*居中对齐弹性盒子当中的各项元素*/
+  border-bottom: 1px solid #ccc;
+}
+.userinfo-avatar {
+  overflow:hidden;
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+  margin-top: 50rpx;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.content {
+    margin-left: 50rpx;
+    margin-bottom: 90rpx;
+}
+.content text {
+    display: block;
+    color: #9d9d9d;
+    margin-top: 40rpx;
+}
+.bottom {
+    border-radius: 80rpx;
+    margin: 70rpx 50rpx;
+    font-size: 35rpx;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+  position: fixed;
+  bottom: 10%;
+
+}
+
+/* 登录界面 */
+.contain_login{
+  padding: 0;
+}
+.login{
+  background-color: rgb(78,110,242);
+    width: auto !important;
+    color: white;
+    margin-top: 5px;
+}

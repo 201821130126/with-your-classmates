@@ -1,0 +1,37 @@
+
+<view class="page">
+    <view class="page__hd">
+        
+        <view class="title">给队友评分吧</view>
+    </view>
+    <view class="page__bd">
+ 
+   <wux-cell-group title="给每个队友在组队期间的表现打分，分数越高，队友的被推荐指数就越高噢~(1颗星=1分)">
+            <wux-cell wx:for="{{teammates}}"  wx:key="index" 
+             title="{{teammates[index].teammateName}}" hover-class="none">
+
+             <view style="display:flex;justify-content:between">
+
+           
+
+                <wux-rater slot="footer" 
+                 data-id="{{teammates[index].userId}}"
+                  bind:change="sliderChange" 
+                  default-value="{{ value }}" />
+
+                  <view class="tag" style="background-color:#94b5c0" wx:if="{{teammates[index].tiqian}}" >
+                    于{{teammates[index].leaveTime}}结束组队
+                  </view>
+
+                </view>
+
+              </wux-cell>
+  </wux-cell-group>
+  <view wx:if="{{empty}}" class="empty">你没有队友噢~</view>
+  </view>
+</view>
+  
+<view class="submit">
+  <button style="background-color: #fea82f;color:white;width:10rem"
+   bindtap="startRating">提交并结束</button>
+</view>

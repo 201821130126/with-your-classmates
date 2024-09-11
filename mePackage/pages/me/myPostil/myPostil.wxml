@@ -1,0 +1,98 @@
+<wxs src="../../../../wxs/subutil.wxs" module="tools" />
+<view class="top-tab flex-wrp flex-tab ">
+  <view class="toptab flex-item {{currentNavtab==idx ? 'active' : ''}}" wx:for="{{navTab}}" wx:for-index="idx"
+    wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab" style="{{currentNavtab==idx ? 'font-size:16px' : 'font-size:12px'}}">
+    {{itemName}}
+  </view>
+</view>
+<!-- bindscrolltoupper="upper" bindscrolltolower="lower" -->
+<scroll-view scroll-y="true" class="container discovery withtab" scroll-into-view="{{toView}}"
+  scroll-top="{{scrollTop}}">
+  
+  <view class="ctnt0" hidden="{{currentNavtab==0 ? '' : true}}">
+    <view wx:if="{{mypostil == ''}}" class="nonTxt">你暂无任何发帖哦！</view>
+    <block wx:for="{{mypostil}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+      <view class="mypostil-item" catchtap="toDiscussDetail" data-forumnewsid="{{item.id}}"
+      hover-class="mypostil-hover"
+        data-forumname="{{item.forumName}}">
+        <view class="mypostil-source">
+          <a class="">
+            <view class="avatar">
+              <open-data type="userAvatarUrl" class="image"></open-data>
+              <!-- <image src="{{item.mypostil_source_img}}"></image> -->
+              <!-- 用户头像 -->
+            </view>
+            <open-data type="userNickName" class="text"></open-data>
+            <!-- <text>{{item.mypostil_source_name}}</text> -->
+            <!-- 用户名称 -->
+            <!-- 再加个发帖时间 -->
+
+            <!-- ！！！发帖点击后进入具体的帖子，如何做到？？？ -->
+          </a>
+          <text class="text" style="font-size: 10px;float: right;">{{mypostil_addTime[idx].addTime}}</text>
+        </view>
+        <view class="mypostil-content">
+          <view class="question" qid="{{question_id}}">
+            <a class="question-link">
+              <text>{{item.title}}</text>
+              <!-- 帖子标题 -->
+            </a>
+          </view>
+          <view class="answer-body">
+            <view>
+              <text class="answer-txt" aid="{{answer_id}}">{{item.content}}</text>
+              <!-- 帖子内容 -->
+            </view>
+            <view class="answer-actions">
+              <view class="like dot">
+                <a>{{item.likeNum}} 赞同 </a>
+                <!-- 点赞数 -->
+              </view>
+              <view class="comments">
+                <!-- ！！！评论数 -->
+                <a>{{item.commentNum}} 评论 </a>
+
+              </view>
+
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="ctnt1 placehold" hidden="{{currentNavtab==1 ? '' : true}}">
+    <view wx:if="{{mycomment == ''}}" class="nonTxt">你暂未评论任何帖子哦！</view>
+    <block wx:for="{{mycomment}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+      <view class="mypostil-item">
+        <view class="mypostil-source">
+          <a class="">
+            <text style="margin:0px;" class="text">我评论了</text>
+            <view class="avatar">
+              <!-- ！！！评论者头像 -->
+              <image src="{{item.avatar}}" style="margin:0px 2px 0px 5px;" class="image"></image>
+            </view>
+            <!-- 评论者姓名 -->
+            <text  class="text">{{item.nickName}}</text>
+          </a>
+          <!-- ！！！改成评论时间 -->
+          <text style="font-size:10px;float:right !important;"  class="text">{{tools.time(item.addTime)}}</text>
+        </view>
+        <view class="mypostil-content">
+          <view class="question" qid="{{question_id}}">
+            <a class="question-link">
+              <!-- 评论帖标题 -->
+              <text class="text">{{item.title}}</text>
+            </a>
+          </view>
+          <view class="answer-body">
+            <view>
+              <!-- 评论的文字 -->
+              <text class="answer-txt" aid="{{answer_id}}">{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+</scroll-view>

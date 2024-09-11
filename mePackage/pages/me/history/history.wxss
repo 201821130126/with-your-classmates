@@ -1,0 +1,84 @@
+
+/* 组队信息 */
+navigator{
+  margin:5px;
+  font-size: 20px;
+}
+.minBtn{
+  background-color:pink;
+  color:white;
+  position: relative;
+  top: 0rpx;
+  left: 120rpx;
+}
+.waikuang{
+  display: flex; 
+  border-bottom: 1px solid rgb(225, 223, 223);
+  flex-direction: row;  
+  margin: 5px 0px;
+  padding: 5px 0px;
+}
+.waikuangex{
+  /* display: flex; */
+  height: 15px; 
+  flex-direction: row;  
+  margin: 5px 0px;
+  padding: 5px 0px;
+}
+.myleft{
+  margin-right: 10px;
+}
+.mycenter{
+  flex: 1;
+  margin-left: 5px;
+}
+.mycenterTitle{
+  margin-top: 3px ;
+  /* 字体大小 */
+  /* font-size: 20px; */
+  font-weight: 600;
+  /* 字体 */
+  color:#333333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.tag{
+  font-size: 10px;
+  font-weight:400;
+ margin-left: 3px;
+ background-color: #d8ac9c;
+ padding-left:5px;
+ padding-right:5px;
+ color:white;
+ border-radius: 10px;
+ display:flex;
+ align-items: center;
+
+}
+.empty{
+  font-size: 20px;
+  font-weight: 500;
+  color:gray;
+  background:white;
+  align-items: center;
+  text-align: center;
+}
+
+.date{
+  flex:none;
+  margin-top: 30px ;
+  font-size: 12px;
+  color: rgb(181,181,181);
+  margin-top:0pt;
+  
+}
+.myright{
+  width: 40rpx;
+  height:40rpx;
+  margin-top: 25px;
+}
+.myrightex{
+  width: 40rpx;
+  height:40rpx;
+  float: right;
+  /* margin-left:325px; */
+}

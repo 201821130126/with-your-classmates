@@ -1,0 +1,96 @@
+<!--pages/index/systemTeam/systemTeam.wxml-->
+<view class="left">
+  <view catchtap="change1" class="{{flag? 'text1':'text'}}">大学</view>
+  <view catchtap="change2" class="{{flag1? 'text1':'text'}}">留学</view>
+  <view catchtap="change3" class="{{flag2? 'text1':'text'}}">语言</view>
+  <view catchtap="change4" class="{{flag3? 'text1':'text'}}">财会</view>
+  <view catchtap="change5" class="{{flag4? 'text1':'text'}}">公务员</view>
+  <view catchtap="change6" class="{{flag5? 'text1':'text'}}">教育</view>
+  <view catchtap="change7" class="{{flag6? 'text1':'text'}}">心理</view>
+  <view catchtap="change8" class="{{flag7? 'text1':'text'}}">管理</view>
+  <view catchtap="change9" class="{{flag8? 'text1':'text'}}">法律</view>
+  <view catchtap="change10" class="{{flag9? 'text1':'text'}}">翻译</view>
+  <view catchtap="change11" class="{{flag10? 'text1':'text'}}">保险</view>
+  <view catchtap="change12" class="{{flag11? 'text1':'text'}}">办公技能</view>
+</view>
+<view class="right-top">
+  <view wx:if="{{flag==false}}" wx:for="{{item}}" wx:key="id" wx:for-index="{{index}}" data-lockerid='{{item}}'
+    catchtap="return" class="{{item.id == currentId? 'univ_on':''}} univ_info" data-id="{{item.id}}">{{item.tagName}}
+  </view>
+  <view class="{{item.id == currentId? 'univ_on':''}} univ_info" data-id="{{item.id}}" wx:if="{{flag1==false}}"
+    catchtap="add" wx:for="{{com}}" wx:key="id" data-lockerid='{{item}}' catchtap="return">
+    {{item.tagName}}
+  </view>
+  <view class="{{item.id == currentId? 'univ_on':''}} univ_info" data-id="{{item.id}}" wx:if="{{flag2==false}}"
+    catchtap="add" wx:for="{{item3}}" wx:key="id" data-lockerid='{{item}}' catchtap="return">
+    {{item.tagName}}
+  </view>
+  <view class="{{item.id == currentId? 'univ_on':''}} univ_info" data-id="{{item.id}}" wx:if="{{flag3==false}}"
+    catchtap="add" wx:for="{{item4}}" wx:key="id" data-lockerid='{{item}}' catchtap="return">
+    {{item.tagName}}
+  </view>
+  <view class="{{item.id == currentId? 'univ_on':''}} univ_info" data-id="{{item.id}}" wx:if="{{flag4==false}}"
+    catchtap="add" wx:for="{{item5}}" wx:key="id" data-lockerid='{{item}}' catchtap="return">
+    {{item.tagName}}
+  </view>
+  <view class="{{item.id == currentId? 'univ_on':''}} univ_info" data-id="{{item.id}}" wx:if="{{flag5==false}}"
+    catchtap="add" wx:for="{{item6}}" wx:key="id" data-lockerid='{{item}}' catchtap="return">
+    {{item.tagName}}
+  </view>
+  <view class="{{item.id == currentId? 'univ_on':''}} univ_info" data-id="{{item.id}}" wx:if="{{flag6==false}}"
+    catchtap="add" wx:for="{{item7}}" wx:key="id" data-lockerid='{{item}}' catchtap="return">
+    {{item.tagName}}
+  </view>
+  <view class="{{item.id == currentId? 'univ_on':''}} univ_info" data-id="{{item.id}}" wx:if="{{flag7==false}}"
+    catchtap="add" wx:for="{{item8}}" wx:key="id" data-lockerid='{{item}}' catchtap="return">
+    {{item.tagName}}
+  </view>
+  <view class="{{item.id == currentId? 'univ_on':''}} univ_info" data-id="{{item.id}}" wx:if="{{flag8==false}}"
+    catchtap="add" wx:for="{{item9}}" wx:key="id" data-lockerid='{{item}}' catchtap="return">
+    {{item.tagName}}
+  </view>
+  <view class="{{item.id == currentId? 'univ_on':''}} univ_info" data-id="{{item.id}}" wx:if="{{flag9==false}}"
+    catchtap="add" wx:for="{{item10}}" wx:key="id" data-lockerid='{{item}}' catchtap="return">
+    {{item.tagName}}
+  </view>
+  <view class="{{item.id == currentId? 'univ_on':''}} univ_info" data-id="{{item.id}}" wx:if="{{flag10==false}}"
+    catchtap="add" wx:for="{{item11}}" wx:key="id" data-lockerid='{{item}}' catchtap="return">
+    {{item.tagName}}
+  </view>
+  <view class="{{item.id == currentId? 'univ_on':''}} univ_info" data-id="{{item.id}}" wx:if="{{flag11==false}}"
+    catchtap="add" wx:for="{{item12}}" wx:key="id" data-lockerid='{{item}}' catchtap="return">
+    {{item.tagName}}
+  </view>
+  
+  <view wx:if="{{!(flag&&flag1&&flag2&&flag3&&flag4&&flag5&&flag6&&flag7&&flag8&&flag9&&flag10&&flag11)&&currentId!=''&&currentTeam == ''}}" class="empty">小程序该标签下暂无您可申请加入的队伍！</view>
+  <view wx:for="{{currentTeam}}" data-lockerid='{{item}}' wx:key="itemID" class='waikuang'
+    data-id="{{currentTeam[index].groupId}}">
+    <image src="{{currentTeam[index].image}}" style="width:100px;height:100px;margin:3px;"></image>
+    <view class="mycenter">
+      <view style="display:flex;align-items: center;">
+        <view class='mycenterTitle'>{{currentTeam[index].groupName}}</view>
+        <view class="tag">{{currentTeam[index].tagName}}</view>
+      </view>
+
+      <button catchtap="join" data-lockerid="{{currentTeam[index]}}" class="minBtn"
+        style="width:55pt;padding:6pt;font-size:10pt;background-color:{{background}}">
+        申请加入
+      </button>
+
+      <view class="date">{{currentTeam[index].fullMem}}人组，现有
+        <text style="font-weight:800;color:black">{{currentTeam[index].nowMemNum}}</text>
+        人
+      </view>
+
+      <view style="display:flex;align-items: center;">
+        <view class="date">结束时间：{{currentTeam[index].deadLine}}</view>
+        <view class="tag" style="background-color:#94b5c0" wx:if="{{groupList[index].leave}}">
+          余{{currentTeam[index].timeFromDdl}}天</view>
+        <view class="tag" style="background-color:#ef4f4f" wx:if="{{groupList[index].isShow}}">已结束</view>
+      </view>
+
+    </view>
+  </view>
+
+
+</view>

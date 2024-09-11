@@ -1,0 +1,29 @@
+<!--pages/groupInfo/groupInfo.wxml-->
+<image src="https://www.cqcwangluo.site/static/images/background1.jpg" class="mytest"></image>
+<view>
+  <view class="groupName">{{groupName}}</view>
+<wux-row>
+  <wux-col offset="2" span="4">
+    <button class="btn" style=" width: 80px;background-color:#e6c4c0" bindtap="plan">日程设置</button>
+  </wux-col>
+  <wux-col span="4">
+    <button class="btn" style="width: 80px;background-color:#ca8a8b" bindtap="dongTai">好友动态</button>
+  </wux-col>
+
+  <wux-col offset="2" span="4">  
+    <!-- disabled="{{status}}" -->
+    <picker catchtap="showTeammates"  bindchange="bindPickerChange" value="{{index}}" range="{{teammates}}" range-key="{{'teammateName'}}">
+      <button  class="btn" style="width: 80px;background-color:#999b84">队友日程</button>
+    </picker>
+    <!-- -->
+  </wux-col>
+
+  <wux-col span="4">
+    <button class="btn" style="width: 80px;background-color:#926e6f" bindtap="end">提前结束</button>
+  </wux-col>
+
+</wux-row>
+</view>
+
+
+

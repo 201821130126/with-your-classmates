@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "wux-row": "../wux/row/index",
+    "wux-col": "../wux/col/index"
+  },
+  "navigationBarTitleText":"好友动态"
+}

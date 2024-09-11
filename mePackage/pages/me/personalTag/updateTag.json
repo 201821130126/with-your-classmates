@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText":"编辑个人标签",
+  "usingComponents": {
+    "mp-icon":"weui-miniprogram/icon/icon"
+  }
+}

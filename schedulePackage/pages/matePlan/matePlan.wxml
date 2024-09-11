@@ -1,0 +1,77 @@
+<view>
+	<view class="screen screen1">
+		<block wx:for="{{planList}}" wx:key="id" wx:for-item="">
+			<view class="contact" bindtap="showInfo" data-idx="{{index}}">
+        <view wx:if="{{planList[index].checked}}" class="finish">已完成</view>
+				<share-element duration="{{duration}}" class="name" key="name" >
+          {{order[index]}}
+				</share-element>
+				<view class="list">
+                <!-- 标题 -->
+                <view style="margin-bottom:20px">{{planList[index].subContent}}</view> 
+
+<view style="display:flex;justify-content:center">
+   <view>{{planList[index].stageDdl}}</view>
+   <view class="tag" style="background-color:#94b5c0" wx:if="{{planList[index].leave}}" >
+     余{{planList[index].timeFromDdl}}天
+     </view>
+     <view class="tag" style="background-color:#ef4f4f" wx:if="{{planList[index].end}}">
+       逾期
+     </view>
+</view>
+				</view>
+			</view>
+		</block>
+	</view>
+</view>
+
+
+
+<page-container
+	show="{{show}}"
+	overlay="{{overlay}}"
+	close-on-slide-down
+  duration="{{duration}}"
+  position="{{position}}"
+  bindbeforeenter="onBeforeEnter"
+  bindenter="onEnter"
+  bindafterenter="onAfterEnter"
+  bindbeforeleave="onBeforeLeave"
+  bindleave="onLeave"
+  bindafterleave="onAfterLeave"
+  bindclickoverlay="onClickOverlay"
+>
+	<view class="screen screen2">
+		<view class="contact">
+			<share-element class="avatar" duration="{{duration}}" key="avatar" transform>
+				<image style="width: 40px;" mode="widthFix"/>
+      </share-element>
+      <!-- <image bindtap='showPrev' class='back' src='/images/back.png'></image> -->
+			<share-element class="name" key="name" duration="{{duration}}" transform>
+				计划详情
+			</share-element>
+			<view style="text-align:center;height:300px" class="paragraph {{show ? 'enter' : ''}}">
+        {{plan0}}
+        
+        
+			</view>
+      <!-- <button
+        wx:if="{{dakaShow}}"
+         disabled="disabled"
+         class="daka" 
+         style="margin-right:2rpx;width:40pt;font-size:10pt;background:#5aa897;color:{{color}}" >
+         打卡
+         
+        </button>
+       <button
+         wx:if="{{dakaShow}}"
+         disabled="disabled"
+         class="daka" 
+         style="margin-right:2rpx;font-size:10pt;width:40pt;background:pink;color:white" >
+         修改
+         
+        </button> -->
+		</view>
+	</view>
+</page-container>
+

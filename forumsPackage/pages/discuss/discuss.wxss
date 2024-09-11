@@ -1,0 +1,344 @@
+/**index.wxss**/
+page {
+  height: 100%;
+  color: #333;
+  background-color: #ddd;
+  overflow: scroll;
+  background-image: url('https://www.cqcwangluo.site/static/images/bgbg.png');
+}
+
+button {
+  border: 0 solid #0010ae;
+  background-color: #1f2afe;
+  color: #fff;
+  font-size: 120%;
+  padding: 8px 16px;
+  outline-width: 0;
+  -webkit-appearance: none;
+  box-shadow: 0 8px 17px rgba(0, 0, 0, 0.2);
+}
+
+/* 左右两栏设计 */
+#all {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  /* 按水平方向排列 */
+  height: 100%;
+}
+
+#left {
+  width: 20%;
+  /* 只有当父容器的高度确定后，子容器的高度才能确定 */
+  height: 100%;
+  background-color: rgb(247, 247, 247);
+  position: fixed;
+}
+
+#right {
+  width: 80%;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  overflow-y: scroll;
+
+}
+
+#rightAll {
+  width: 100%;
+  height: 100%;
+}
+
+/* 左侧 */
+.talk {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* 讨论区名称 */
+.talkname {
+  padding: 20px 10px;
+  height: 70%;
+  font-family: "Microsoft YaHei";
+
+  line-height: 30px;
+  font-size: 45rpx;
+  letter-spacing: 2px;
+  color: rgb(1, 131, 254);
+  /* flex布局使得文字水平和竖直居中 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: white; */
+}
+
+.talkplace {
+  padding-top: 5px;
+  font-family: "SimHei";
+  /* font-weight:bold; */
+  line-height: 30px;
+  font-size: 30rpx;
+  letter-spacing: 2px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.talkname-hover {
+  color: #87CEFF;
+}
+
+.sendpostil {
+  margin-top: 40px;
+  height: 15%;
+  /* flex布局使得文字水平和竖直居中 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  margin: 2px 1px;
+
+  /* background-color: #D7D6DC; */
+}
+
+.arrow {
+  position: absolute;
+  position: fixed;
+  /* background-color:white; */
+  width: 20%;
+  padding-right: 0;
+  border-radius: 0.5ch;
+}
+
+.arrow-img {
+  width: 20px;
+  height: 20px;
+  /* margin-left:20px; */
+}
+
+/* 右侧 */
+/* 搜索帖子 */
+#header {
+  background-color: #EFEFF4;
+}
+
+.head {
+  width: 35px;
+  height: 35px;
+  margin: 15rpx;
+  margin-left: 20rpx;
+  border-radius: 50%;
+  position: fixed;
+  right: 5px;
+  top: 5px;
+  z-index: 10001;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.8);
+
+}
+
+.weui-search-bar {
+  margin-left: 5px;
+  position: relative;
+  padding: 8px 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #EFEFF4;
+  border-top: 1rpx solid #D7D6DC;
+  border-bottom: 1rpx solid #D7D6DC;
+}
+
+.weui-icon-search_in-box {
+  position: absolute;
+  left: 10px;
+  top: 7px;
+}
+
+.weui-search-bar__form {
+
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+  flex: auto;
+  border-radius: 5px;
+  background: #FFFFFF;
+  border: 1rpx solid #E6E6EA;
+  display: flex;
+
+}
+
+.weui-search-bar__box {
+  padding-left: 10px;
+  width: 80%;
+  box-sizing: border-box;
+  z-index: 1;
+  margin-top: 5px;
+}
+
+.weui-search-bar__input {
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+  /* width:10px; */
+}
+
+.search-btn {
+  margin: 5px 10px;
+  line-height: 25px;
+  color: white;
+  background-color: rgb(78, 110, 242);
+  padding: 5px;
+  border-radius: 0.5ch;
+  white-space: nowrap;
+  height: 25px;
+}
+
+/* 点击可以发布帖子 */
+.add {
+  display: flex;
+  margin: 0 auto;
+  background-color: rgb(103, 195, 55);
+  border-radius: 30rem;
+  color: #f8ede3;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 800;
+  position: fixed;
+  z-index: 2;
+  top: 8px;
+  left: 5px;
+}
+
+/* 右边帖子列表的展示 */
+.screen {
+  /* position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+  padding: 16px;
+  -webkit-overflow-scrolling: touch;
+
+}
+
+.postil {
+  position: relative;
+  padding: 10px;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.avatar {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 0;
+}
+
+.avatar-name {
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+}
+.avatar-time{
+  font-size: smaller;
+  margin-bottom: 10px;
+  line-height: 10px;
+  font-weight: lighter;
+  color: gray;
+  text-align: center;
+}
+.post-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  margin: 5px 0;
+}
+
+/* 点赞数和评论数 */
+.img-num {
+  width: 25px;
+  height: 25px;
+}
+
+.number {
+  line-height: 25px;
+  flex: 2;
+  text-align: center;
+}
+
+.data {
+  flex: 1;
+  text-align: left;
+}
+
+.list {
+  padding-top: 8px;
+  padding-left: 32px;
+}
+
+.screen1 {
+  overflow-y: scroll;
+  padding: 0;
+}
+
+.screen1 .postil {
+  margin: 16px;
+  height: auto;
+  width: auto;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.screen2 {
+  overflow-y: scroll;
+
+}
+
+.screen2-button {
+  display: block;
+  margin: 10px auto;
+  position: absolute;
+  font-size: 10px;
+  right: 16px;
+  top: 0px;
+  padding-left: 3px !important;
+  padding-right: 3px !important;
+}
+
+.screen2-btn {
+  display: block;
+  margin: 24px auto;
+}
+
+
+/* 帖子段落 */
+.paragraph {
+  -webkit-transition: transform ease-in-out 300ms;
+  transition: transform ease-in-out 300ms;
+  -webkit-transform: scale(0.6);
+  transform: scale(0.6);
+  padding: 16px;
+}
+
+.enter.paragraph {
+  transform: none;
+}
+
+/* 评论列表样式 */
+.comm_list {
+  border: 1px solid blue;
+  border-radius: 1ch;
+  padding: 10px;
+}

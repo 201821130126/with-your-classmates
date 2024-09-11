@@ -1,0 +1,13 @@
+<!--pages/compInfo/compInfo.wxml-->
+<!-- <image src="/images/background.jpg" class="background"></image> -->
+<view>
+  <view class="title">{{info.title}}</view>
+  <image src="{{info.coverPath}}" class="image"></image>
+  <view class="content">{{info.content}}</view>
+  <view class="url">详情地址：
+    <view>{{info.compUrl}}</view>
+    <!-- <web-view src ="{{info.compUrl}}"></web-view> -->
+  </view>
+  <view class="fabu">开始报名日期：{{compDate}}</view>
+  <!-- <view class="date"></view> -->
+</view>

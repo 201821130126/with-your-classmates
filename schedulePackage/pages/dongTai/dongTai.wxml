@@ -1,0 +1,100 @@
+<!-- <view style="margin-bottom: 5px;color:grey;font-size:26rpx;">
+  <view class="tag">!</view>请大家认真对待所设置的所有日程信息！
+</view>
+<view style="margin-bottom: 5px;color:grey;font-size:26rpx;padding:0px 1px">
+  <view class="tag">!</view>最多有5个日程，每个日程可设置日程标题、内容及DDL。
+</view>
+<view style="margin-bottom: 5px;color:grey;font-size:26rpx;">
+  <view class="tag">!</view>请按照顺序设置日程，可以修改日程、打卡日程。
+</view>
+<view style="margin-bottom: 5px;color:grey;font-size:26rpx;">
+  <view class="tag">!</view>日程的时间设置请按照先后顺序，每打卡一次日程可获得20积分。
+</view>
+<view style="margin-bottom: 5px;color:grey;font-size:26rpx;">
+  <view class="tag">!</view>每个日程的完成时间应介于前后两次未完成日程之间。
+</view> -->
+<button class="add" bindtap="add" style="width: 14vmin;height: 14vmin;">
+  +
+</button>
+<view wx:if="{{status}}" class="empty">{{empty}}</view>
+<!-- 动态 -->
+<view wx:for="{{dongTaiList}}" wx:key="itemID" class='waikuang'>
+  <!-- data-id="{{dongTaiList[index].stageNum}}" -->
+  <!-- <view class="mycenter"> -->
+
+    <wux-row>
+      <wux-col span="2" offset="1">
+        <image style="width:40px;height:40px" src="{{dongTaiList[index].avatarUrl}}"></image>
+      </wux-col>
+      <wux-col span="4">
+        <view class="mycenterTitle">
+          {{dongTaiList[index].name}}
+        </view>
+      </wux-col>
+      <wux-col span="5" style="margin-bottom:20px">
+        <view bindtap="label" data-idx="{{index}}" data-id="{{dongTaiList[index].dongTaiId}}"
+          style="font-size:12px;color:rgb(90, 86, 86);">
+          {{dongTaiList[index].addTime}}
+        </view>
+        <view bindtap="label" data-idx="{{index}}" data-id="{{dongTaiList[index].dongTaiId}}"
+          style="font-size:12px;color:#687980;margin-left:80px;">
+          {{dongTaiList[index].label}}
+        </view>
+      </wux-col>
+
+    </wux-row>
+    <view class="info" id="info"> 
+     <text class="text">{{dongTaiList[index].comment}}</text>
+     <!-- {{dongTaiList[index].comment}} -->
+    </view>
+    
+    <!-- <view class="info">
+      <view >
+        {{dongTaiList[index].comment}}
+      </view>
+    </view> -->
+    <!-- <view  style="width:600rpx;margin-left:100rpx" >
+              <text class="content {{ellipsis?'ellipsis':'unellipsis'}}">
+               
+              </text>
+            <button  bindtap='ellipsis'>{{ellipsis?'展开':'收起'}}</button>
+            </view> -->
+  <!-- </view> -->
+
+</view>
+
+
+<!-- 添加动态弹窗 -->
+<view>
+  <view class="mask" wx:if="{{showModalStatus}}" bindtap="close"></view>
+  <view class="drawerBox" wx:if="{{showModalStatus}}">
+    <image class="close" src="../../images/close.png" bindtap="close"></image>
+    <view class="tits">发布动态</view>
+    <!--输入内容 -->
+    <view class="content">
+      <textarea bindinput="bindinput0" placeholder="请输入动态内容" style="border: 1px solid lightgrey;margin-bottom: 10px;border-radius: 1ch;height:100px;" placeholder-class=""
+        value="{{dongtai}}"></textarea>
+    </view>
+
+    <view class="btn btn1" bindtap="submit">发布</view>
+  </view>
+</view>
+
+<!-- 举报 -->
+<view>
+  <view class="mask" wx:if="{{showModalStatus2}}" bindtap="close"></view>
+  <view class="drawerBox" wx:if="{{showModalStatus2}}">
+    <image class="close" src="../../images/close.png" bindtap="close"></image>
+    <view class="tits">举报理由
+      <image class="close" src="https://www.cqcwangluo.site/static/images/close.png" bindtap="close" ></image>
+    </view>
+    <!--输入内容 -->
+    <view class="content">
+      <textarea bindinput="bindinput" placeholder="写下举报原因吧" placeholder-class="placeholder-class "
+       value="{{reason}}"
+       style="border: 1px solid lightgrey;margin-bottom: 10px;border-radius: 1ch;height:100px;">
+    </textarea>
+    </view>
+    <view class="btn" bindtap="submitReason">确认</view>
+  </view>
+</view>

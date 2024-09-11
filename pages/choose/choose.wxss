@@ -1,0 +1,133 @@
+/* pages/choose/choose.wxss */
+.dongTai {
+  /* 讲解打卡规则 */
+  position: fixed;
+  bottom: 5px;
+  left: 5px;
+}
+.add {
+  display: flex;
+  margin: 0 auto;
+  background-color: rgb(48, 147, 255);
+  border-radius: 30rem;
+  color: #f8ede3;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 800;
+  position: fixed;
+  z-index: 2;
+  bottom: 8px;
+  left: 5px;
+  box-shadow: 5px 0px 10px 1px rgba(48, 147, 255, 0.8);
+
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  opacity: 0.8;
+  overflow: hidden;
+}
+
+.drawerdongTais {
+  height: auto;
+  line-height: 40rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin: 0 30rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: left;
+}
+
+.close {
+  width: 50rpx;
+  height: 50rpx;
+  float: right;
+  overflow: hidden;
+  color: black;
+}
+
+.menuBox {
+  margin-left: 40rpx;
+  position: relative;
+  width: 300rpx;
+  line-height: 40rpx;
+}
+
+.menu {
+  line-height: 40rpx;
+  border: 1rpx #ccc solid;
+  padding: 0 20rpx;
+}
+
+.val {
+  position: absolute;
+  top: 40rpx;
+  padding: 0 20rpx;
+  background: #fff;
+  height: 200rpx;
+  z-index: 99;
+}
+
+.val view {
+  line-height: 50rpx;
+  width: 300rpx;
+  border-bottom: 1rpx #ccc solid;
+}
+
+page {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.head .buttonTop {
+  background-color: rgb(8, 228, 240);
+  color: white;
+  margin-bottom: 40rpx;
+  top: 20%;
+  position: fixed;
+  width: 280rpx;
+  left: 5%;
+  box-shadow: 0rpx 2rpx 5rpx 5rpx rgb(8, 228, 240);
+}
+
+.head .buttonBottom {
+  background-color: white;
+  top: 20%;
+  position: fixed;
+  width: 280rpx;
+  left: 50%;
+  box-shadow: 0rpx 2rpx 5rpx 5rpx #f0eaea;
+}
+
+.move {
+  display: inline-flex;
+  margin-right: 40rpx;
+  margin-top: 40rpx;
+}
+
+.moveView {
+  border-radius: 100%;
+  background: #ff0;
+  justify-content: center;
+  align-items: center;
+  padding: 50rpx;
+  display: inline-flex;
+}
+
+.head {}
+
+.tex {}

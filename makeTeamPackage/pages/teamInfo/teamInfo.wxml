@@ -1,0 +1,33 @@
+<!--pages/teaminfo/teaminfo.wxml-->
+<view style="width:100%;min-height:100%;background-repeat:no-repeat;background-size: 100% 100%;background-image:url(https://www.cqcwangluo.site/static/images/img2.jpg)">
+<view class="title"></view>
+<view class="info">
+  <view class="nickname">
+  队伍标签   <text class="label">{{tagName}}</text>
+  </view>
+  <view class="nickname">
+  <view style="width:100rpx;">昵称</view><input class="input" name="groupName" placeholder="请输入昵称" bindinput="userNameInput"/>
+  </view>
+  <view class="nickname">
+    <view style="width:100rpx;">人数</view><input class="input" name="member" placeholder="请输入队伍人数(数字)" bindinput="numInput"  type="number"/>
+    </view>
+  <view class="nickname"> 
+     <!-- 输入结束日期-->
+ <view class="ddl" style="width:800rpx;">
+      <picker mode="date" value="{{date1}}" start="2021-01-01" bindchange="bindDateChange">
+        <view class="picker">
+          结束日期:   {{date1}}
+        </view>
+      </picker>
+</view>
+  </view>
+  <view class="nickname">
+  <view style="width:180rpx;">头像</view>
+  <button style="margin-left:80rpx;padding-top:34rpx;" bindtap="uploadImage">获取图片</button>
+  <image src="{{coverPath}}" style="width:200rpx;height:120rpx"></image>
+  </view>
+</view>
+
+<button class="button" bindtap="onSubmit" disabled='{{disabled}}'>提交</button>
+</view>
+

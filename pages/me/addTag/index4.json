@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "公务员",
+  "usingComponents": {
+    "ec-canvas": "../../../../ec-canvas/ec-canvas"
+  }
+}

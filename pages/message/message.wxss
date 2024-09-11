@@ -1,0 +1,96 @@
+/* pages/message/message.wxss */
+.noMessage {
+  font-size: 13px;
+  color: gray;
+  margin-left: 10px;
+}
+
+.select_img {
+  margin-left: 5px;
+  /* width: 24px; */
+  /* height: 24px; */
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  transition: transform 0.3s;
+  transform: rotate(-90deg);
+  margin-top: 5px;
+}
+
+
+.select_img_rotate {
+  transform: rotate(0deg);
+}
+
+.waikuang {
+  background-color: white;
+  height: 60px;
+  border: 1px solid rgb(209, 204, 204);
+  border-radius: 1ch;
+  margin: 5px 5px;
+  padding: 5px 0px;
+  box-shadow: 0px 0px 5px 0px #AAAAAA;
+  padding: 10px;
+}
+
+.waikuang1 {
+  background-color: white;
+  height: 60px;
+  border: 1px solid rgb(209, 204, 204);
+  border-radius: 1ch;
+  margin: 5px 10px;
+  padding: 5px 5px;
+  box-shadow: 0px 0px 5px 0px #AAAAAA;
+  padding: 10px;
+}
+
+
+.type {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.msg1 {
+  margin-left: 10px;
+  background-color: rgb(248, 248, 248);
+}
+
+.msg {
+  margin-left: 10px;
+  background-color: rgb(255, 185, 0)
+}
+
+.number {
+  /* float:right; */
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  height: 15px;
+  width: 15px;
+  font-size: 12px;
+  text-align: center;
+  background-color: red;
+  /* background-color: rgb(134,134,134); */
+  border-radius: 5ch;
+}
+
+.number1 {
+  /* float:right; */
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  height: 15px;
+  width: 15px;
+  font-size: 12px;
+  text-align: center;
+  /* background-color: rgb(134,134,134); */
+  border-radius: 5ch;
+  background-color: lightgrey;
+}
+
+.title {
+  padding: 30rpx;
+  /* color:rgb(253,92,98); */
+  color: rgb(255, 185, 0);
+}

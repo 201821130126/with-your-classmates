@@ -1,0 +1,14 @@
+<!--pages/personalTag/updateTag.wxml-->
+<view>
+  <view class="category">已选个人标签</view>
+</view>
+<view style="margin-bottom:150rpx;">
+  <view style="display:inline-flex;" wx:for="{{selectedTags}}" wx:key="id">
+    <view class="univ_info">{{item.tagName}}
+      <mp-icon class="dele" bindtap="delete" data-id="{{item.id}}" icon="close" color="black" size="{{25}}"></mp-icon>
+    </view>
+  </view>
+</view>
+<view class="button">
+  <button bindtap="onSubmit" style="background-color:rgb(253, 237, 237)">提交</button>
+</view>

@@ -1,0 +1,62 @@
+/* pages/label/label.wxss */
+.head{
+  position:fixed;
+  top:0;
+  width:100%;
+  height:140rpx;
+  background-color:white;
+  border-bottom: 4rpx solid rgb(241, 243, 242);
+}
+.alabel{
+  display: inline-flex;
+  width:100%;
+  height: 80rpx;
+}
+.label{
+  margin-left:30rpx;
+  margin-top: 10rpx;
+  padding-top: 10rpx;
+  background-color: rgb(253, 237, 237);
+}
+.dele{
+  background-color: rgb(253, 237, 237);
+  margin-top: 10rpx;
+  padding-top:10rpx;
+  border-top-right-radius: 8%;
+  border-bottom-right-radius:8%;
+}
+.univ_info{
+  display:inline-flex;
+  border-radius: 5%;
+  margin:20rpx 30rpx;
+  padding: 15rpx;
+  background-color: rgb(244,245,249);
+}
+.category{
+  font-weight:bolder;
+  margin-top: 40rpx;
+  margin-left:30rpx;
+}
+.hasChoose{
+  margin-left: 30rpx;
+  color:rgb(191,192,194)
+}
+.Return{
+  width:100%;
+  margin-left:10rpx;
+  height:80rpx;
+  background-color:rgb(134, 241, 236);
+}
+.All{
+  border-top:4rpx solid rgb(241, 243, 242);
+  margin-top:140rpx;
+  margin-bottom: 120rpx;
+  border-top-right-radius:5%;
+  border-top-left-radius: 5%;
+}
+.button{
+  position:fixed;
+  bottom:0;
+  background-color: white;
+  width:100%;
+}

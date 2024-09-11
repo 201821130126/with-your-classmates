@@ -1,0 +1,6 @@
+{ 
+  "navigationBarTitleText": "办公",
+  "usingComponents": {
+    "ec-canvas": "../../../../ec-canvas/ec-canvas"
+  }
+}

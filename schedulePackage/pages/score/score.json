@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "评分",
+  "usingComponents": {
+      "wux-rater": "../wux/rater/index",
+      "wux-cell": "../wux/cell/index",
+      "wux-cell-group": "../wux/cell-group/index",
+      "wux-icon": "../wux/icon/index",
+      "wux-button": "../wux/button/index"
+  }
+}

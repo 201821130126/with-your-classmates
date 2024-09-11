@@ -1,0 +1,48 @@
+// 这样就可以wxml界面调用这个函数了
+var sub = function(val) {
+  val = val.replace('T', ' ');
+  return val;
+}
+
+var subTitle = function(val) {
+  if(val.length>10){
+    val = val.substring(0,10);
+    val = val+'...'
+  }
+  return val;
+}
+
+var event = function(val) {
+  var event = val.slice(0,4)
+  return event;
+}
+
+var type = function(val) {
+  var type = val.slice(4,6)
+  return type;
+}
+
+var value = function(val) {
+  var value = val.slice(6,-2)
+  return value;
+}
+// 切割时间
+var time = function(val) {
+  var time = val.slice(0,-2)
+  return time;
+}
+
+// 保留小数位数为1位
+var numFix1 = function(val) {
+  var numFix1 = val.toFixed(1)
+  return numFix1;
+}
+
+
+module.exports.sub = sub;
+module.exports.subTitle = subTitle;
+module.exports.event = event;
+module.exports.type = type;
+module.exports.value = value;
+module.exports.time = time;
+module.exports.numFix1 = numFix1;
